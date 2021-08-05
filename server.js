@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); const cookieParser = require('cookie-parser');
 const session = require('cookie-session');
-const authRouter = require('./server/routes/auth');
-const boardsRouter = require('./server/routes/boards');
+const toolsRouter = require('./server/routes/tools');
 const path = require("path")
 require('dotenv').config();
 const app = express();
@@ -41,8 +40,7 @@ app.use((_req, _res, next) => {
 	 next();
 });
 
-app.use('/auth', authRouter);
-app.use('/boards', boardsRouter);
+app.use('/tools', toolsRouter);
 
 app.use(express.static(path.join(__dirname,"client","build")))
 

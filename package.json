@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "client": "cd client && npm start",
     "test": "jest",
     "develop": "concurrently --kill-others-on-fail \"npm run start\" \"npm run client\"",
@@ -24,6 +24,7 @@
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "crypto-js": "^4.0.0",
+    "csv-parser": "^3.0.0",
     "dotenv": "^8.2.0",
     "ems": "^1.6.1",
     "express": "^4.17.1",

@@ -1,104 +1,67 @@
 .App {
   text-align: center;
+	background-color: #F3F3F3;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.app-title{
+.app-header{
 	font-size:xx-large;
 	font-weight:bold;
+	background-color: #932432;
+	color:#F3F3F3;
 }
 
-.board-name{
-	font-size: large;
+.filters-list{
+	float: left;
+	width:25%;
+	margin-right:1em;
 }
 
-.top-buffer{
-	margin-top: 25px;
+.filter-label{
+	color:#3C1874;
+	font-weight: bold;
 }
 
-.sidenav {
-  height: 100%;
-  width: 140px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #003366;
-  overflow-x: hidden;
-  padding-top: 20px;
+.filter-box{
+
 }
 
-.sidenav li {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
+.cards-list{
+	float: left;
+	width:70%;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
 }
 
-.sidenav li:hover {
-  color: #f1f1f1;
+.card{
+	flex: 0 1 24%;
+	text-align: left;
 }
 
-li.active {
+.card-detail{
+	margin-left:10px !important;
+	margin-right:10px !important;
+}
+
+.popup-overlay {
+	border: 1px black;
+	border-radius: 5px;
+	background: #283747;
+	width:67%;
+	height: 50%;
+	margin:auto;
+}
+.popup-content{
 	color: white;
+	text-align: justify;
+	width:80%;
 }
 
-.main {
-  margin-left: 140px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
-}
-
-ul{
-	list-style-type:none
-}
-
-.add-board{
-	background-color: #FFD700 !important
-}
-
-.board-name{
-	cursor:pointer
-}
-
-.ideasList{
-	width:100%;
-}
-
-.idea{
-	background: #0096FF;
-	padding: 5px;
-	margin: 5px;
-	box-sizing: border-box;
-	width:100%;
-}
-
-.idea-text-box{
-	width:100%;
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;
-}
-
-.column{
-	background: #0096FF;
-	padding: 5px;
-	margin: 5px;
-	margin-right:10px;
-	margin-left:10px;
-}
-
-.ideas-header{
-	text-align:center
-}
-
-.idea-delete-btn{
-	float:left
-}
-
-.idea-add-btn{
-	float:right
+.btn{
+	color: #932432 !important;
+	background-color: #F3F3F3 !important;
 }
