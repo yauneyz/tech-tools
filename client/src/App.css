@@ -7,6 +7,21 @@
   color: #61dafb;
 }
 
+.horizontal-center {
+  position: relative;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.horizontal-right {
+  margin: 0;
+  position: relative;
+  left: 100%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
 .app-header{
 	font-size:xx-large;
 	font-weight:bold;
@@ -52,13 +67,17 @@
 	border-radius: 5px;
 	background: #283747;
 	width:67%;
-	height: 50%;
+	height: auto;
 	margin:auto;
 }
 .popup-content{
 	color: white;
-	text-align: justify;
+	text-align: left;
 	width:80%;
+	background: #283747;
+}
+.popup-close{
+	margin-top: 5px;
 }
 
 .btn{

@@ -3,14 +3,34 @@ import Card from "./Card";
 import { setTools } from "../redux/actions";
 import { connect } from "react-redux";
 
-function filterIncludes(key, value) {
+function filterIncludes(key, values) {
+  /*
+   * Here the {key} is the card's value for a particular field.
+   * {values} is the list of all allowed values, usually taken from a multi-select
+   */
   if (!key) {
     key = "";
   }
 
   key = key.toLowerCase();
-  value = value.toLowerCase();
-  return key.includes(value);
+  values = values.map((value) => value.toLowerCase());
+
+  // No filters applied means we're good
+  if (values.length === 0) {
+    return true;
+  }
+
+  // Search through each allowed value to see if one matches the key
+  let match = false;
+  values.forEach((value) => {
+    if (key.includes(value)) {
+      match = true;
+    }
+  });
+
+  console.log("Problem");
+  // Don't match the filter
+  return match;
 }
 
 class CardsList extends React.Component {

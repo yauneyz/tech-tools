@@ -1,4 +1,4 @@
-import { SET_TOOLS, SET_FILTER } from "./action_types.js";
+import { SET_TOOLS, SET_FILTER, SET_OPTIONS } from "./action_types.js";
 
 export const setTools = function (tools) {
   return {
@@ -15,6 +15,15 @@ export const setFilter = function (field, value) {
     payload: {
       field: field,
       value: value,
+    },
+  };
+};
+
+export const setOptions = function (options) {
+  return {
+    type: SET_OPTIONS,
+    payload: {
+      options: options,
     },
   };
 };

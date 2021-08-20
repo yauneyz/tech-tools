@@ -1,24 +1,24 @@
-import update from "react-addons-update";
-import { SET_TOOLS, SET_FILTER } from "../action_types";
+import { SET_TOOLS, SET_FILTER, SET_OPTIONS } from "../action_types";
 
 const initialState = {
   tools: [],
   filters: {
-    name: "",
-    description: "",
-    url: "",
-    category: "",
-    sub_category: "",
-    demographic: "",
-    language: "",
-    company: "",
-    cost_low: "",
-    cost_high: "",
-    cost_classroom: "",
+    name: [],
+    description: [],
+    url: [],
+    category: [],
+    sub_category: [],
+    demographic: [],
+    language: [],
+    company: [],
+    cost_low: [],
+    cost_high: [],
+    cost_classroom: [],
     //amazon_url: "",
     //msrp: "",
     //curriculum: "",
   },
+  options: {},
 };
 
 function main(state = initialState, action) {
@@ -36,6 +36,14 @@ function main(state = initialState, action) {
       return {
         ...state,
         filters: { ...state.filters, [field]: value },
+      };
+    }
+
+    case SET_OPTIONS: {
+      const { options } = action.payload;
+      return {
+        ...state,
+        options: options,
       };
     }
 
