@@ -1,11 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
-
-import FiltersList from "./components/FiltersList";
-import CardsList from "./components/CardsList";
-
-//import {} from "./redux/actions";
+import Main from "./components/Main";
+import Admin from "./components/Admin";
 
 class App extends React.Component {
   componentDidMount() {}
@@ -25,9 +23,14 @@ class App extends React.Component {
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
           />
         </header>
-        <div className="app-header">Coding Is Elementary Catalog</div>
-        <FiltersList />
-        <CardsList />
+        <Switch>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <Route path="/">
+            <Main />
+          </Route>
+        </Switch>
       </div>
     );
   }

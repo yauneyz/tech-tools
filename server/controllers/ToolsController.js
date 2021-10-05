@@ -32,8 +32,13 @@ exports.getOptions = (async(_req,res) => {
 			const cid = distinct.toLowerCase()
 			selectValues.push({value:cid,label:cid})
 		}
+
+		// Sort the list
+		selectValues.sort((a,b)=>(a.value > b.value) ? 1:-1)
+
 		optionsList[field] = selectValues;
 	}
+
 
 	res.json(optionsList)
 });

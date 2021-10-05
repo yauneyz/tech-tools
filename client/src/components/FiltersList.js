@@ -20,7 +20,14 @@ class FiltersList extends React.Component {
       });
   }
   render() {
-    return <div className="filters-list">{this.filtersList}</div>;
+    return (
+      <div className="filters-list">
+        <div className="filters-title">
+          <b>SEARCH THE CATALOG</b>
+        </div>
+        <div>{this.filtersList}</div>
+      </div>
+    );
   }
 }
 

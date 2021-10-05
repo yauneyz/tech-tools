@@ -33,6 +33,20 @@ function filterIncludes(key, values) {
   return match;
 }
 
+function getFilteredTools(toolsToFilter, filtersToApply) {
+  // Filter the tools
+  let filteredTools = toolsToFilter.filter((tool) => {
+    for (const [key, value] of Object.entries(filtersToApply)) {
+      if (!filterIncludes(tool[key], value)) {
+        return false;
+      }
+    }
+    return true;
+  });
+
+  return filteredTools;
+}
+
 class CardsList extends React.Component {
   async componentDidMount() {
     const res = await fetch("tools");
@@ -41,24 +55,39 @@ class CardsList extends React.Component {
   }
 
   render() {
-    const tools = this.props.tools;
-    const filters = this.props.filters;
-
-    // Filter the tools
-    let filteredTools = tools.filter((tool) => {
-      for (const [key, value] of Object.entries(filters)) {
-        if (!filterIncludes(tool[key], value)) {
-          return false;
-        }
-      }
-      return true;
-    });
-
+    const filteredTools = getFilteredTools(
+      this.props.tools,
+      this.props.filters
+    );
     const cardsList = filteredTools.map((tool, index) => (
       <Card tool={tool} key={index} />
     ));
 
-    return <div className="cards-list">{cardsList}</div>;
+    return (
+      <div>
+        <div className="row app-title">
+          <div className="col-12 app-title-main inline">
+            CODING IS
+            <br /> ELEMENTARY
+            <div className="app-title-small inline">catalog</div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <div
+              className="row row-cols-1 
+							row-cols-md-2 
+							row-cols-lg-3 
+							row-cols-xl-4
+							row-cols-xxl-5
+							card-deck"
+            >
+              {cardsList}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
@@ -67,4 +96,5 @@ const mapStateToProps = (state) => {
   return { tools: tools, filters: filters };
 };
 
+export { getFilteredTools };
 export default connect(mapStateToProps, { setTools })(CardsList);

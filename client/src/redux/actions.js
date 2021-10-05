@@ -1,4 +1,9 @@
-import { SET_TOOLS, SET_FILTER, SET_OPTIONS } from "./action_types.js";
+import {
+  SET_TOOLS,
+  SET_FILTER,
+  SET_OPTIONS,
+  SET_ADMIN_DETAIL,
+} from "./action_types.js";
 
 export const setTools = function (tools) {
   return {
@@ -24,6 +29,15 @@ export const setOptions = function (options) {
     type: SET_OPTIONS,
     payload: {
       options: options,
+    },
+  };
+};
+
+export const setAdminDetail = function (tool) {
+  return {
+    type: SET_ADMIN_DETAIL,
+    payload: {
+      tool: tool,
     },
   };
 };

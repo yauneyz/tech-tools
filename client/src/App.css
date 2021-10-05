@@ -1,10 +1,41 @@
+table,th,td{
+	border: 1px solid black;
+	font-size: small;
+}
+
+tr:hover{
+   background-color: #ffff99;
+}
+
 .App {
-  text-align: center;
 	background-color: #F3F3F3;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.app-title{
+	color:#F3F3F3;
+	width:100%;
+	margin:5px;
+	text-align:center;
+}
+.app-title-main{
+	font-size:xx-large;
+	font-weight:bold;
+}
+.app-title-small{
+	font-size:x-large;
+}
+
+.btn{
+	color: #932432 !important;
+	background-color: #F3F3F3 !important;
+}
+
+.cards-list{
+	background-color: #3b5fcb;
 }
 
 .horizontal-center {
@@ -22,65 +53,52 @@
   transform: translateX(-50%);
 }
 
-.app-header{
-	font-size:xx-large;
-	font-weight:bold;
-	background-color: #932432;
-	color:#F3F3F3;
+
+.filter-label{
+	color:black;
+	font-weight: bold;
 }
 
 .filters-list{
 	float: left;
-	width:25%;
-	margin-right:1em;
+	width:100%;
+	margin-top: 5em;
+	text-align:center;
 }
 
-.filter-label{
-	color:#3C1874;
-	font-weight: bold;
+.no-padding{
+	padding:none;
 }
 
-.filter-box{
-
-}
-
-.cards-list{
-	float: left;
-	width:70%;
-	display:flex;
-	flex-wrap:wrap;
-	justify-content:space-between;
-}
-
-.card{
-	flex: 0 1 24%;
-	text-align: left;
-}
-
-.card-detail{
-	margin-left:10px !important;
-	margin-right:10px !important;
-}
 
 .popup-overlay {
-	border: 1px black;
+	border: 5px black;
 	border-radius: 5px;
-	background: #283747;
+	background: #ffffff;
 	width:67%;
-	height: auto;
+	height: 75%;
 	margin:auto;
 }
 .popup-content{
-	color: white;
+	color: black;
 	text-align: left;
 	width:80%;
-	background: #283747;
+	background: #ffffff;
 }
 .popup-close{
 	margin-top: 5px;
 }
 
-.btn{
-	color: #932432 !important;
-	background-color: #F3F3F3 !important;
+
+.inline{
+	display:inline;
+}
+.text-left{
+	text-align: left;
+}
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
 }

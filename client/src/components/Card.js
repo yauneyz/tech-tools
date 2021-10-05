@@ -8,9 +8,22 @@ class CardDisplay extends React.Component {
     const tool = this.props.tool;
     return (
       <div onClick={() => this.props.setOpen(true)}>
-        <p>{tool.name}</p>
-        <p>{tool.category}</p>
-        <p>{tool.sub_category}</p>
+        <img className="card-img-top" src="..." alt=""></img>
+        <div className="card-body">
+          <h5 className="card-title text-center">{tool.name.toUpperCase()}</h5>
+          <div className="row card-text">
+            <div className="col-6">
+              <b>Category</b>
+            </div>
+            <div className="col-6">{tool.category}</div>
+          </div>
+          <div className="row card-text">
+            <div className="col-6">
+              <b>Grades</b>
+            </div>
+            <div className="col-6">{tool.demographic}</div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -36,6 +49,7 @@ class CardDetail extends React.Component {
             className="btn horizontal-right fa fa-close popup-close"
             onClick={() => this.props.setOpen(false)}
           ></button>
+          <div className="row">Insert title image here</div>
           <div className="row">
             <div className="col-7">
               <b>{tool.name}</b>
@@ -65,9 +79,11 @@ const Card = (props) => {
   const [open, setOpen] = React.useState(false);
   const tool = props.tool;
   return (
-    <div className="card">
-      <CardDisplay tool={tool} setOpen={setOpen} />
-      <CardDetail setOpen={setOpen} open={open} tool={tool} />
+    <div className="col py-2">
+      <div className="card h-100">
+        <CardDisplay tool={tool} setOpen={setOpen} />
+        <CardDetail setOpen={setOpen} open={open} tool={tool} />
+      </div>
     </div>
   );
 };

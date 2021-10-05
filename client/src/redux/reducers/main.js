@@ -1,4 +1,9 @@
-import { SET_TOOLS, SET_FILTER, SET_OPTIONS } from "../action_types";
+import {
+  SET_TOOLS,
+  SET_FILTER,
+  SET_OPTIONS,
+  SET_ADMIN_DETAIL,
+} from "../action_types";
 
 const initialState = {
   tools: [],
@@ -14,11 +19,9 @@ const initialState = {
     cost_low: [],
     cost_high: [],
     cost_classroom: [],
-    //amazon_url: "",
-    //msrp: "",
-    //curriculum: "",
   },
   options: {},
+  adminDetailTool: null,
 };
 
 function main(state = initialState, action) {
@@ -36,6 +39,15 @@ function main(state = initialState, action) {
       return {
         ...state,
         filters: { ...state.filters, [field]: value },
+      };
+    }
+
+    case SET_ADMIN_DETAIL: {
+      console.log("Detail");
+      const { tool } = action.payload;
+      return {
+        ...state,
+        adminDetailTool: tool,
       };
     }
 
