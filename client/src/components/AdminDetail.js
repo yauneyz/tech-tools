@@ -22,16 +22,35 @@ class Admin extends React.Component {
     };
     this.newTool = newTool;
     this.setNewTool = this.setNewTool.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {}
+  async componentDidMount() {
+    console.log("Did mount", this.props.tool);
+    if (this.props.tool === null) {
+      console.log("Yes");
+      await this.setNewTool();
+    }
+  }
 
-  setNewTool() {
-    this.props.setAdminDetail(this.newTool);
+  async setNewTool() {
+    await this.props.setAdminDetail(this.newTool);
+  }
+
+  handleChange(tool, field, event) {
+    console.log(tool, field);
+    console.log(tool[field]);
+    this.props.tool[field] = event.target.value;
+    console.log(tool[field]);
+  }
+
+  handleSubmit() {
+    return;
   }
 
   render() {
-    const tool = this.props.tool ? this.props.tool : this.newTool;
-    let fields = Object.getOwnPropertyNames(tool);
+    console.log("Tool", this.props.tool);
+    let fields = Object.getOwnPropertyNames(this.props.tool);
 
     // Remove the _id field
     const idIndex = fields.indexOf("_id");
@@ -43,14 +62,19 @@ class Admin extends React.Component {
     const formInputs = fields.map((field, index) => (
       <label key={index}>
         {field}:
-        <input type="text" name={field} value={tool[field]} />
+        <input
+          type="text"
+          name={field}
+          value={this.props.tool[field]}
+          onChange={(event) => this.handleChange(this.props.tool, field, event)}
+        />
       </label>
     ));
 
     return (
       <div>
         <button onClick={this.setNewTool}>New Tool</button>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           {formInputs}
           <input type="submit" value="Save" />
         </form>

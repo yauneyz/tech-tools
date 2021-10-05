@@ -12,7 +12,7 @@ class TextFilter extends React.Component {
   handleChange(event) {
     this.props.setFilter(this.props.name, [event.target.value]);
   }
- render() {
+  render() {
     const inputElement = (
       <input
         type="text"

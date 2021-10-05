@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Popup from "reactjs-popup";
+import PopupBackground from "./PopupBackground";
 
 // This is how they appear in the list
 class CardDisplay extends React.Component {
