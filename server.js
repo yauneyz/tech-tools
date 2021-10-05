@@ -29,7 +29,10 @@ app.disable('x-powered-by');
 
 // Session stuff
 app.use(cookieParser());
-app.use(session({secret: process.env.SESS_SECRET}));
+app.use(session({
+	secret: process.env.SESS_SECRET,
+	keys:[process.env.key1,process.env.key2,process.env.key3],
+}));
 
 // Body Parser
 app.use(bodyParser.json());
