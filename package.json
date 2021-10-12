@@ -7,7 +7,7 @@
     "build": "tsc",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "start": "node server.js",
-    "local-start": "nodemon server.js",
+    "local-start": "nodemon --inspect server.js",
     "client": "cd client && npm start",
     "test": "jest",
     "develop": "concurrently --kill-others-on-fail \"npm run local-start\" \"npm run client\"",

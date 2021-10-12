@@ -42,3 +42,22 @@ exports.getOptions = (async(_req,res) => {
 
 	res.json(optionsList)
 });
+
+exports.saveTool = (async(req,res) => {
+	res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+	const tool = req.body.tool;
+	const id = tool._id;
+	delete tool._id;
+	if (id) {
+			Tool.update({_id: id}, tool, {upsert: true}, function (err) {
+				if(err){
+					console.log("Save Error", tool, err);
+					res.send("Failed to save");
+				}
+				else{
+					console.log("Saved Record",tool);
+					res.send("Save successful");
+				}
+			});
+	}
+});

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setAdminDetail } from "../redux/actions";
+import { setAdminDetail, setTools } from "../redux/actions";
 
-class Admin extends React.Component {
+class AdminDetail extends React.Component {
   constructor(props) {
     super();
     const newTool = {
@@ -26,9 +26,7 @@ class Admin extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   async componentDidMount() {
-    console.log("Did mount", this.props.tool);
     if (this.props.tool === null) {
-      console.log("Yes");
       await this.setNewTool();
     }
   }
@@ -38,18 +36,37 @@ class Admin extends React.Component {
   }
 
   handleChange(tool, field, event) {
-    console.log(tool, field);
-    console.log(tool[field]);
-    this.props.tool[field] = event.target.value;
-    console.log(tool[field]);
+    const editedTool = {
+      ...this.props.tool,
+      [field]: event.target.value,
+    };
+    this.props.setAdminDetail(editedTool);
   }
 
-  handleSubmit() {
-    return;
+  // Method to save a tool
+  async handleSubmit() {
+    console.log("Save", this.props.tool);
+
+    // Save the tool
+    const _res = await fetch("tools/save", {
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify(this.props.tool),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    // Update tools list with server tools
+    const res2 = await fetch("tools");
+    const tools = await res2.json();
+    this.props.setTools(tools);
   }
 
   render() {
-    console.log("Tool", this.props.tool);
+    // To make sure that we have the tool set
+    if (this.props.tool === null) {
+      return <div></div>;
+    }
+
     let fields = Object.getOwnPropertyNames(this.props.tool);
 
     // Remove the _id field
@@ -84,8 +101,10 @@ class Admin extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { adminDetailTool } = state;
-  return { tool: adminDetailTool };
+  const { adminDetailTool, tools } = state;
+  return { tool: adminDetailTool, tools: tools };
 };
 
-export default connect(mapStateToProps, { setAdminDetail })(Admin);
+export default connect(mapStateToProps, { setAdminDetail, setTools })(
+  AdminDetail
+);
