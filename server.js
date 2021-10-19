@@ -35,8 +35,8 @@ app.use(session({
 }));
 
 // Body Parser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json({limit: '200mb'}));
+app.use(bodyParser.urlencoded({limit: '200mb',extended: false}));
 
 // Logging function
 app.use((_req, _res, next) => {

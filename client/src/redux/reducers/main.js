@@ -3,6 +3,7 @@ import {
   SET_FILTER,
   SET_OPTIONS,
   SET_ADMIN_DETAIL,
+  DELETE_TOOL,
 } from "../action_types";
 
 const initialState = {
@@ -43,7 +44,6 @@ function main(state = initialState, action) {
     }
 
     case SET_ADMIN_DETAIL: {
-      console.log("Detail");
       const { tool } = action.payload;
       return {
         ...state,
@@ -56,6 +56,18 @@ function main(state = initialState, action) {
       return {
         ...state,
         options: options,
+      };
+    }
+
+    case DELETE_TOOL: {
+      const { tool } = action.payload;
+      const toolId = state.tools.indexOf(tool);
+      return {
+        ...state,
+        tools: [
+          ...state.tools.slice(0, toolId),
+          ...state.tools.slice(toolId + 1),
+        ],
       };
     }
 

@@ -28,7 +28,6 @@ function filterIncludes(key, values) {
     }
   });
 
-  console.log("Problem");
   // Don't match the filter
   return match;
 }
