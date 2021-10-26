@@ -52,7 +52,7 @@ class CardDetail extends React.Component {
           ></button>
           <img
             className="title-image img"
-            src={process.env.PUBLIC_URL + "/logo192.png"}
+            src={process.env.PUBLIC_URL + tool.title_image}
             alt={"logo"}
           />
           <div className="row">
@@ -69,7 +69,7 @@ class CardDetail extends React.Component {
             </div>
             <img
               className="action-image"
-              src={process.env.PUBLIC_URL + "/logo192.png"}
+              src={process.env.PUBLIC_URL + tool.action_image}
               alt={"logo"}
             />
           </div>

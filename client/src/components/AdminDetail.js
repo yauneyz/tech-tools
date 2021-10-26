@@ -21,17 +21,13 @@ class AdminDetail extends React.Component {
       cost_high: "",
       cost_classroom: "",
       msrp: "",
-    };
-    this.state = {
-      titleImage: null,
-      actionImage: null,
+      title_image: "",
+      action_image: "",
     };
     this.newTool = newTool;
     this.setNewTool = this.setNewTool.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateTitleImage = this.updateTitleImage.bind(this);
-    this.updateActionImage = this.updateActionImage.bind(this);
   }
   async componentDidMount() {
     if (this.props.tool === null) {
@@ -63,10 +59,6 @@ class AdminDetail extends React.Component {
       // Add the id
       data.set("_id", this.props.tool._id);
 
-      // Set the images
-      data.set("titleImage", this.state.titleImage);
-      data.set("actionImage", this.state.actionImage);
-
       // Save the record
       const _res = await fetch("tools/save", {
         method: "POST",
@@ -83,18 +75,6 @@ class AdminDetail extends React.Component {
     this.props.setTools(tools);
   }
 
-  updateTitleImage(event) {
-    this.setState({
-      titleImage: event.target.files[0],
-    });
-  }
-
-  updateActionImage(event) {
-    this.setState({
-      actionImage: event.target.files[0],
-    });
-  }
-
   render() {
     // To make sure that we have the tool set
     if (this.props.tool === null) {
@@ -108,13 +88,17 @@ class AdminDetail extends React.Component {
     fields.splice(idIndex, 1);
 
     const vIndex = fields.indexOf("__v");
-    fields.splice(vIndex, 1);
+    // Have to make sure it actually exists
+    if (vIndex >= 0) {
+      fields.splice(vIndex, 1);
+    }
 
     const formInputs = fields.map((field, index) => (
-      <label key={index}>
+      <label key={index} className="col-form-label">
         {field}:
         <input
           type="text"
+          className="form-control"
           name={field}
           value={this.props.tool[field]}
           onChange={(event) => this.handleChange(field, event)}
@@ -129,20 +113,6 @@ class AdminDetail extends React.Component {
         </button>
         <form onSubmit={this.handleSubmit}>
           {formInputs}
-          <label htmlFor="title-image">Title Image:</label>
-          <input
-            id="title-image"
-            name="titleImage"
-            type="file"
-            onChange={this.updateTitleImage}
-          />
-          <label htmlFor="action-image">Action Image:</label>
-          <input
-            id="action-image"
-            name="actionImage"
-            type="file"
-            onChange={this.updateActionImage}
-          />
           <button className="btn" type="submit" value="Save">
             Save
           </button>

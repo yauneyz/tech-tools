@@ -16,20 +16,20 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-12 text-center">
               <h1>Admin</h1>
             </div>
           </div>
           <div className="row">
-            <div className="col-3">
+            <div className="col-2">
               <FiltersList />
             </div>
-            <div className="col-6">
+            <div className="col-8">
               <AdminTable tools={this.props.tools} />
             </div>
-            <div className="col-3">
+            <div className="col-2">
               <AdminDetail />
             </div>
           </div>
