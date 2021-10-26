@@ -29,6 +29,17 @@ tr:hover{
 	font-size:x-large;
 }
 
+.backdrop{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	left: 0;
+	background: rgba(0,0,0,0.7);
+	z-index: 990;
+}
+
 .btn{
 	color: #932432 !important;
 	background-color: #F3F3F3 !important;

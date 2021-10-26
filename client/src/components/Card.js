@@ -39,13 +39,28 @@ function PopupField(props) {
   );
 }
 
+function PopupBackdrop(props) {
+  if (props.open) {
+    return <div className="backdrop" />;
+  } else {
+    return null;
+  }
+}
+
 // This is how cards appear as popup, but you MUST edit inside the popup tag
 class CardDetail extends React.Component {
   render() {
     const tool = this.props.tool;
     return (
       <div className="card-detail">
-        <Popup open={this.props.open} modal>
+        <PopupBackdrop open={this.props.open} />
+        <Popup
+          open={this.props.open}
+          modal
+          onClose={() => {
+            this.props.setOpen(false);
+          }}
+        >
           <button
             className="btn horizontal-right fa fa-close popup-close"
             onClick={() => this.props.setOpen(false)}
@@ -67,11 +82,13 @@ class CardDetail extends React.Component {
               <PopupField label="Language" data={tool.language} />
               <PopupField label="Category" data={tool.company} />
             </div>
-            <img
-              className="action-image"
-              src={process.env.PUBLIC_URL + tool.action_image}
-              alt={"logo"}
-            />
+            <div className="col-5">
+              <img
+                className="action-image"
+                src={process.env.PUBLIC_URL + tool.action_image}
+                alt={"logo"}
+              />
+            </div>
           </div>
           <div className="row">
             <a className="btn horizontal-center" href={tool.url}>
