@@ -16,14 +16,8 @@ const ToolSchema = new mongoose.Schema({
 	//amazon_url: String,
 	msrp: String,
 	//curriculum: String,
-	title_image: {
-		data: Buffer,
-		contentType: String
-	},
-	action_image: {
-		data: Buffer,
-		contentType: String
-	},
+	title_image: String,
+	action_image: String,
 });
 
 module.exports = mongoose.model('Tool',ToolSchema);

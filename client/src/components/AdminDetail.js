@@ -53,11 +53,15 @@ class AdminDetail extends React.Component {
 
   // Method to save a tool
   async handleSubmit(event) {
+    console.log(event);
     event.preventDefault();
 
     // Save the tool
     try {
       const data = new FormData(event.target);
+
+      // Add the id
+      data.set("_id", this.props.tool._id);
 
       // Set the images
       data.set("titleImage", this.state.titleImage);

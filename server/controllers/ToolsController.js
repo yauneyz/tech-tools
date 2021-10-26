@@ -49,19 +49,19 @@ exports.saveTool = (async(req,res) => {
 	const tool = req.body;
 
 	// Store the images
-	//const files = req.files
-	//files.forEach((file) => {
-		//switch(file.fieldname){
-			//case 'titleImage':
-				//tool['titleImage'] = {"data": file.buffer,"contentType":file.mimetype}
-				//break;
-			//case 'actionImage':
-				//tool['actionImageImage'] = {"data": file.buffer,"contentType":file.mimetype}
-				//break;
-			//default:
-				//console.log("Unexpected Image")
-		//}
-	//});
+	const files = req.files
+	files.forEach((file) => {
+		switch(file.fieldname){
+			case 'titleImage':
+				tool['title_image'] = {"data": file.buffer,"contentType":file.mimetype}
+				break;
+			case 'actionImage':
+				tool['action_image'] = {"data": file.buffer,"contentType":file.mimetype}
+				break;
+			default:
+				console.log("Unexpected Image")
+		}
+	});
 	
 	debugger;
 	

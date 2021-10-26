@@ -50,7 +50,11 @@ class CardDetail extends React.Component {
             className="btn horizontal-right fa fa-close popup-close"
             onClick={() => this.props.setOpen(false)}
           ></button>
-          <div className="row">Insert title image here</div>
+          <img
+            className="title-image img"
+            src={process.env.PUBLIC_URL + "/logo192.png"}
+            alt={"logo"}
+          />
           <div className="row">
             <div className="col-7">
               <b>{tool.name}</b>
@@ -63,7 +67,11 @@ class CardDetail extends React.Component {
               <PopupField label="Language" data={tool.language} />
               <PopupField label="Category" data={tool.company} />
             </div>
-            <div className="col=5">Insert Image Here</div>
+            <img
+              className="action-image"
+              src={process.env.PUBLIC_URL + "/logo192.png"}
+              alt={"logo"}
+            />
           </div>
           <div className="row">
             <a className="btn horizontal-center" href={tool.url}>
