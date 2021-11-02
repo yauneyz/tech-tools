@@ -15,6 +15,12 @@ tr:hover{
   color: #61dafb;
 }
 
+.action-image{
+	height: 200px;
+	width: 200px;
+	border: none;
+}
+
 .app-title{
 	color:#F3F3F3;
 	width:100%;
@@ -112,4 +118,9 @@ tr:hover{
 }
 .text-right{
 	text-align: right;
+}
+
+.title-image{
+	height: 200px;
+	width: 200;
 }

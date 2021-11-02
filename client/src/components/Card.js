@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Popup from "reactjs-popup";
 import PopupBackground from "./PopupBackground";
+import { func } from "joi";
 
 // This is how they appear in the list
 class CardDisplay extends React.Component {
@@ -47,6 +48,14 @@ function PopupBackdrop(props) {
   }
 }
 
+function getTitleImage(tool) {
+  return tool.name.replace(" ", "_") + "-title.jpg";
+}
+
+function getActionImage(tool) {
+  return tool.name.replace(" ", "_") + "-action.jpg";
+}
+
 // This is how cards appear as popup, but you MUST edit inside the popup tag
 class CardDetail extends React.Component {
   render() {
@@ -67,8 +76,8 @@ class CardDetail extends React.Component {
           ></button>
           <img
             className="title-image img"
-            src={process.env.PUBLIC_URL + tool.title_image}
-            alt={"logo"}
+            src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
+            alt={""}
           />
           <div className="row">
             <div className="col-7">
@@ -84,10 +93,12 @@ class CardDetail extends React.Component {
             </div>
             <div className="col-5">
               <img
-                className="action-image"
-                src={process.env.PUBLIC_URL + tool.action_image}
-                alt={"logo"}
+                className="action-image img"
+                src={process.env.PUBLIC_URL + "images/" + getActionImage(tool)}
+                alt={""}
+                onError={(event) => (event.target.style.display = "none")}
               />
+              <div>{""}</div>
             </div>
           </div>
           <div className="row">

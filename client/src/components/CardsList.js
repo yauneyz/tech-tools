@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import { setTools } from "../redux/actions";
 import { connect } from "react-redux";
+import { dollarToFloat } from "../utils/conversions";
 
 function filterIncludes(key, values) {
   /*
@@ -13,7 +14,11 @@ function filterIncludes(key, values) {
   }
 
   key = key.toLowerCase();
-  values = values.map((value) => value.toLowerCase());
+  try {
+    values = values.map((value) => value.toLowerCase());
+  } catch (error) {
+    debugger;
+  }
 
   // No filters applied means we're good
   if (values.length === 0) {
@@ -33,11 +38,25 @@ function filterIncludes(key, values) {
 }
 
 function getFilteredTools(toolsToFilter, filtersToApply) {
+  // Numeric filter
+
   // Filter the tools
   let filteredTools = toolsToFilter.filter((tool) => {
     for (const [key, value] of Object.entries(filtersToApply)) {
-      if (!filterIncludes(tool[key], value)) {
-        return false;
+      if (Number.isInteger(value[0])) {
+        const toolVal = dollarToFloat(tool[key]);
+        if (isNaN(toolVal)) {
+          return false;
+        }
+
+        const [min, max] = value;
+        if (toolVal < min || toolVal > max) {
+          return false;
+        }
+      } else {
+        if (!filterIncludes(tool[key], value)) {
+          return false;
+        }
       }
     }
     return true;
@@ -58,6 +77,7 @@ class CardsList extends React.Component {
       this.props.tools,
       this.props.filters
     );
+
     const cardsList = filteredTools.map((tool, index) => (
       <Card tool={tool} key={index} />
     ));

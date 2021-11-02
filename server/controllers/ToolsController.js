@@ -14,13 +14,32 @@ const selectFields = [
 	"compatible_os",
 ]
 
+const numberFields = [
+	"cost_low",
+	"cost_high",
+]
+
+// Used to handle the number fields
+function dollarToFloat(x) {
+  // Strip away unecessary stuff
+  x = x.replace(/[^0-9.-]+/g, "");
+
+  // Try conversion
+  try {
+    return parseFloat(x);
+  } catch (error) {
+    // If not, return null
+    return null;
+  }
+}
+
 exports.getOptions = (async(_req,res) => {
 	var optionsList = {}
 	for (const field of selectFields){
 		const distincts = await Tool.distinct(field);
 
 		// Calculate cid, or Case-Insensitive-Distinct, and filter for distinct values
-		let cids = [... new Set(distincts.map(d => d.toLowerCase()))]
+		let cids = [... new Set(distincts.map(d => d.toLowerCase().trim().split(',')).flat())]
 
 		// Remove "" as a possible option
 		const index = cids.indexOf("")
@@ -37,6 +56,20 @@ exports.getOptions = (async(_req,res) => {
 		selectValues.sort((a,b)=>(a.value > b.value) ? 1:-1)
 
 		optionsList[field] = selectValues;
+	}
+
+	for (const field of numberFields){
+		debugger;
+		const distincts = await Tool.distinct(field);
+
+		// Filter
+		let vals = [... new Set(distincts.map(dollarToFloat))]
+
+		const minMax = { "min": Math.min(vals),
+			"max": Math.max(vals),
+		}
+
+		optionsList[field] = minMax
 	}
 
 
