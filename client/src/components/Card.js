@@ -77,6 +77,7 @@ class CardDetail extends React.Component {
           <img
             className="title-image img"
             src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
+            onError={(event) => (event.target.style.display = "none")}
             alt={""}
           />
           <div className="row">
