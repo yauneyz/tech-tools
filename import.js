@@ -4,6 +4,7 @@ const fs = require('fs')
 const csv = require('csv-parser')
 const Tool = require('./server/models/ToolModel')
 
+debugger;
 // DB connection
 const DB_URL = process.env.DB_URL;
 mongoose.connect(DB_URL,
@@ -31,8 +32,6 @@ fs.createReadStream('tools.csv')
 				cost_low: row.cost_low,
 				cost_high: row.cost_high,
 				cost_classroom: row.classroom_kit_cost,
-				title_image: row.title_image,
-				action_image: row.action_image,
 				//amazon_url: row.amazon_url,
 				//curriculum: row.curricula,
 			})

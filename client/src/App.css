@@ -16,8 +16,8 @@ tr:hover{
 }
 
 .action-image{
-	height: 200px;
-	width: 200px;
+	/*height: 200px;*/
+	width: 100%;
 	border: none;
 }
 
@@ -121,6 +121,11 @@ tr:hover{
 }
 
 .title-image{
-	height: 200px;
-	width: 200px;
+	/*height: 200px;*/
+	width: 100%;
+}
+
+.thumbnail-image{
+	/*height: 200px;*/
+	width: 100%;
 }

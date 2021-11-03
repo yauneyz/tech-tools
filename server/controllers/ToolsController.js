@@ -39,7 +39,10 @@ exports.getOptions = (async(_req,res) => {
 		const distincts = await Tool.distinct(field);
 
 		// Calculate cid, or Case-Insensitive-Distinct, and filter for distinct values
-		let cids = [... new Set(distincts.map(d => d.toLowerCase().trim().split(',')).flat())]
+		let cids = [... new Set(distincts.map(d => d.toLowerCase().trim().split(',')).flat().map(c => c.trim()))]
+
+		// Split on semicolons too
+		cids = [... new Set(cids.map(d => d.split(';')).flat().map(c => c.trim()))]
 
 		// Remove "" as a possible option
 		const index = cids.indexOf("")
@@ -59,7 +62,6 @@ exports.getOptions = (async(_req,res) => {
 	}
 
 	for (const field of numberFields){
-		debugger;
 		const distincts = await Tool.distinct(field);
 
 		// Filter

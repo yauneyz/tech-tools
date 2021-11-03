@@ -13,6 +13,16 @@ class CardDisplay extends React.Component {
         <img className="card-img-top" src="..." alt=""></img>
         <div className="card-body">
           <h5 className="card-title text-center">{tool.name.toUpperCase()}</h5>
+          <div className="row">
+            <div className="col-12">
+              <img
+                className="thumbnail-image img"
+                src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
+                onError={(event) => (event.target.style.display = "none")}
+                alt={""}
+              />
+            </div>
+          </div>
           <div className="row card-text">
             <div className="col-6">
               <b>Category</b>
@@ -74,14 +84,27 @@ class CardDetail extends React.Component {
             className="btn horizontal-right fa fa-close popup-close"
             onClick={() => this.props.setOpen(false)}
           ></button>
-          <img
-            className="title-image img"
-            src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
-            onError={(event) => (event.target.style.display = "none")}
-            alt={""}
-          />
           <div className="row">
-            <div className="col-7">
+            <div className="col-6">
+              <img
+                className="title-image img"
+                src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
+                onError={(event) => (event.target.style.display = "none")}
+                alt={""}
+              />
+            </div>
+            <div className="col-6">
+              <img
+                className="action-image img"
+                src={process.env.PUBLIC_URL + "images/" + getActionImage(tool)}
+                alt={""}
+                onError={(event) => (event.target.style.display = "none")}
+              />
+              <div>{""}</div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12">
               <b>{tool.name}</b>
               <p></p>
               <p>{tool.description}</p>
@@ -91,15 +114,6 @@ class CardDetail extends React.Component {
               <PopupField label="Compatible OS" data={tool.compatible_os} />
               <PopupField label="Language" data={tool.language} />
               <PopupField label="Category" data={tool.company} />
-            </div>
-            <div className="col-5">
-              <img
-                className="action-image img"
-                src={process.env.PUBLIC_URL + "images/" + getActionImage(tool)}
-                alt={""}
-                onError={(event) => (event.target.style.display = "none")}
-              />
-              <div>{""}</div>
             </div>
           </div>
           <div className="row">
