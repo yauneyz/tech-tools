@@ -26,13 +26,18 @@ class FiltersList extends React.Component {
           <b>SEARCH THE CATALOG</b>
         </div>
         <div>{this.filtersList}</div>
+        <div>
+          <b>Results: {this.props.toolsCount}</b>
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (_state, _ownProps) => {
-  return {};
+const mapStateToProps = (state, _ownProps) => {
+  const { filteredTools } = state;
+  const toolsCount = filteredTools.length;
+  return { toolsCount: toolsCount };
 };
 
 export default connect(mapStateToProps, { setOptions })(FiltersList);

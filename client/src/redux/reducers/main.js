@@ -1,3 +1,4 @@
+import getFilteredTools from "../../utils/filterTools";
 import {
   SET_TOOLS,
   SET_FILTER,
@@ -8,6 +9,7 @@ import {
 
 const initialState = {
   tools: [],
+  filteredTools: [],
   filters: {
     name: [],
     description: [],
@@ -29,17 +31,22 @@ function main(state = initialState, action) {
   switch (action.type) {
     case SET_TOOLS: {
       const { tools } = action.payload;
+      const filteredTools = getFilteredTools(tools, state.filters);
       return {
         ...state,
         tools: tools,
+        filteredTools: filteredTools,
       };
     }
 
     case SET_FILTER: {
       const { field, value } = action.payload;
+      const newFilters = { ...state.filters, [field]: value };
+      const filteredTools = getFilteredTools(state.tools, newFilters);
       return {
         ...state,
-        filters: { ...state.filters, [field]: value },
+        filters: newFilters,
+        filteredTools: filteredTools,
       };
     }
 
