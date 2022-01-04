@@ -14,7 +14,9 @@ class Main extends React.Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-4">
-            <FiltersList />
+            <div className="sticky-top">
+              <FiltersList />
+            </div>
           </div>
           <div className="col-8 cards-list">
             <CardsList />
