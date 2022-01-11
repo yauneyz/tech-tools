@@ -65,15 +65,14 @@ exports.getOptions = (async(_req,res) => {
 		const distincts = await Tool.distinct(field);
 
 		// Filter
-		let vals = [... new Set(distincts.map(dollarToFloat))]
+		let vals = [... new Set(distincts)]
 
-		const minMax = { "min": Math.min(vals),
-			"max": Math.max(vals),
+		const minMax = { "min": Math.min(... vals),
+			"max": Math.max(... vals),
 		}
 
 		optionsList[field] = minMax
 	}
-
 
 	res.json(optionsList)
 });

@@ -59,6 +59,7 @@ function main(state = initialState, action) {
     }
 
     case SET_OPTIONS: {
+      debugger;
       const { options } = action.payload;
       return {
         ...state,

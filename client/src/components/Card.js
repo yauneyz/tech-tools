@@ -114,6 +114,8 @@ class CardDetail extends React.Component {
               <PopupField label="Compatible OS" data={tool.compatible_os} />
               <PopupField label="Language" data={tool.language} />
               <PopupField label="Category" data={tool.company} />
+              <PopupField label="Cost (Low)" data={tool.cost_low} />
+              <PopupField label="Cost (High)" data={tool.cost_high} />
             </div>
           </div>
           <div className="row">

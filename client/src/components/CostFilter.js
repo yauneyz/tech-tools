@@ -1,29 +1,59 @@
 import React from "react";
-import Slider, { Range } from "rc-slider";
+import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
 import { setFilter } from "../redux/actions";
-import Filter from "./Filter";
 import { connect } from "react-redux";
 
 class CostFilter extends React.Component {
   constructor() {
     super();
+
     this.handleChange = this.handleChange.bind(this);
+    this.state = { currentMin: 0, currentMax: 0, min: 0, max: 0 };
+  }
+
+  componentDidUpdate(prevProps) {
+    // Try to get the filters to have the right max/min
+    // On first render we don't have options fully filled out, so we have to make sure that doesn't hurt us
+    const name = this.props.name;
+    const options = this.props.options;
+
+    // Make sure we don't have an infinite loop and only run this when we get new options
+    if (prevProps.options[name] === this.props.options[name]) {
+      return;
+    }
+
+    let max = 0;
+    let min = 0;
+
+    if (name in options) {
+      max = options[name].max;
+      min = options[name].min;
+    }
+
+    this.setState({ currentMin: min, currentMax: max, min: min, max: max });
   }
 
   handleChange(values) {
+    this.setState({ currentMin: values[0], currentMax: values[1] });
     this.props.setFilter(this.props.name, values);
   }
 
   render() {
+    const max = this.state.max;
+    const min = this.state.min;
     return (
       <div>
         <div>
-          <b>{this.props.displayName}:</b>
+          <b>
+            {this.props.displayName}: ${this.state.currentMin} - $
+            {this.state.currentMax}
+          </b>
         </div>
         <Range
-          max={this.props.max}
-          min={this.props.min}
+          max={max}
+          min={min}
+          value={[min, max]}
           onChange={(event) => this.handleChange(event)}
           tipFormatter={(value) => <span className="tooltip">{value}</span>}
           tipProps={{ visible: true }}
@@ -35,12 +65,11 @@ class CostFilter extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const { name, displayName } = ownProps;
-  const { min, max } = state.options;
+  const options = state.options;
   return {
     name: name,
     displayName: displayName,
-    min: min,
-    max: max,
+    options: options,
   };
 };
 

@@ -21,6 +21,22 @@ Tool.deleteMany({}, () => {
 		.on('data', async function (row) {
 
 			if (row.product){
+				// Convert costs to numbers
+				let cost_high = 0;
+				let cost_low = 0;
+				if (row.cost_high != null){
+					cost_high = parseFloat(row.cost_high.replace("$",""))
+				}
+				if (row.cost_low != null){
+					cost_low = parseFloat(row.cost_low.replace("$",""))
+				}
+
+				// Convert the availability to bool
+				let available = false;
+				if (row.available === "TRUE"){
+					available = true;
+				}
+
 				const newTool = new Tool({
 					name: row.product,
 					description: row.description,
@@ -31,20 +47,13 @@ Tool.deleteMany({}, () => {
 					compatible_os: row.compatible_OS,
 					language: row.coding_language,
 					company: row.company,
-					cost_low: row.cost_low,
-					cost_high: row.cost_high,
+					cost_low: cost_low,
+					cost_high: cost_high,
 					cost_classroom: row.classroom_kit_cost,
-					//amazon_url: row.amazon_url,
-					//curriculum: row.curricula,
+					available: available,
 				})
 
 				tools.push(newTool)
-				//newTool.save(function(err,tool){
-					//if(err){
-						//console.log(err);
-						//console.log(tool);
-					//}
-				//})
 			}
 		})
 		.on('end', function () {

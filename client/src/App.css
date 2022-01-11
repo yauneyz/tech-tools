@@ -74,6 +74,7 @@ tr:hover{
 .filter-label{
 	color:black;
 	font-weight: bold;
+	z-index: 1;
 }
 
 .filters-list{
@@ -81,6 +82,7 @@ tr:hover{
 	width:100%;
 	margin-top: 5em;
 	text-align:center;
+	z-index: 1;
 }
 
 .no-padding{
@@ -95,15 +97,18 @@ tr:hover{
 	width:80%;
 	height: 75%;
 	margin:auto;
+	z-index: 1000;
 }
 .popup-content{
 	color: black;
 	text-align: left;
 	width:80%;
 	background: #ffffff;
+	z-index: 1000;
 }
 .popup-close{
 	margin-top: 5px;
+	z-index: 1000;
 }
 
 

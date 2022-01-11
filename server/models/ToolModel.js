@@ -10,14 +10,15 @@ const ToolSchema = new mongoose.Schema({
 	demographic: String,
 	language: String,
 	company: String,
-	cost_low: String,
-	cost_high: String,
+	cost_low: Number,
+	cost_high: Number,
 	cost_classroom: String,
 	//amazon_url: String,
 	msrp: String,
 	//curriculum: String,
 	title_image: String,
 	action_image: String,
+	available: Boolean,
 });
 
 module.exports = mongoose.model('Tool',ToolSchema);

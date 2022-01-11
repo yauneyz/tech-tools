@@ -10,11 +10,7 @@ function filterIncludes(key, values) {
   }
 
   key = key.toLowerCase();
-  try {
-    values = values.map((value) => value.toLowerCase());
-  } catch (error) {
-    debugger;
-  }
+  values = values.map((value) => value.toLowerCase());
 
   // No filters applied means we're good
   if (values.length === 0) {
@@ -39,13 +35,14 @@ function getFilteredTools(toolsToFilter, filtersToApply) {
   // Filter the tools
   let filteredTools = toolsToFilter.filter((tool) => {
     for (const [key, value] of Object.entries(filtersToApply)) {
-      if (Number.isInteger(value[0])) {
-        const toolVal = dollarToFloat(tool[key]);
-        if (isNaN(toolVal)) {
-          return false;
-        }
+      if (key === "cost_low" || key === "cost_high") {
+        let toolVal = tool[key];
 
         const [min, max] = value;
+        if (typeof toolVal == "undefined") {
+          toolVal = 0;
+        }
+
         if (toolVal < min || toolVal > max) {
           return false;
         }

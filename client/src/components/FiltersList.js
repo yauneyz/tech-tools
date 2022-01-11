@@ -16,6 +16,7 @@ class FiltersList extends React.Component {
     fetch("tools/options")
       .then((res) => res.json())
       .then((options) => {
+        console.log(options);
         this.props.setOptions(options);
       });
   }
