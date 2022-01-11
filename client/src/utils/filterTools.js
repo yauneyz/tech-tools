@@ -36,6 +36,7 @@ function getFilteredTools(toolsToFilter, filtersToApply) {
   let filteredTools = toolsToFilter.filter((tool) => {
     for (const [key, value] of Object.entries(filtersToApply)) {
       if (key === "cost_low" || key === "cost_high") {
+        //Cost filters
         let toolVal = tool[key];
 
         const [min, max] = value;
@@ -46,7 +47,15 @@ function getFilteredTools(toolsToFilter, filtersToApply) {
         if (toolVal < min || toolVal > max) {
           return false;
         }
+      } else if (key === "available") {
+        // Check for availability
+        if (value[0]) {
+          return tool.available;
+        } else {
+          return true;
+        }
       } else {
+        // The general case
         if (!filterIncludes(tool[key], value)) {
           return false;
         }

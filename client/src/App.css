@@ -35,6 +35,11 @@ tr:hover{
 	font-size:x-large;
 }
 
+.availability-title{
+	margin:auto;
+	width:50%;
+}
+
 .backdrop{
 	position: fixed;
 	width: 100%;

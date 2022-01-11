@@ -1,6 +1,7 @@
 import TextFilter from "../components/TextFilter";
 import SelectFilter from "../components/SelectFilter";
 import CostFilter from "../components/CostFilter";
+import AvailableFilter from "../components/AvailableFilter";
 
 const filters = {
   name: <TextFilter name="name" displayName="Name" key="name" />,
@@ -41,6 +42,8 @@ const filters = {
   cost_high: (
     <CostFilter name="cost_high" displayName="Highest Cost" key="cost_high" />
   ),
+
+  available: <AvailableFilter />,
 };
 
 export default filters;
