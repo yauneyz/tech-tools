@@ -20,7 +20,7 @@ class AvailableFilter extends React.Component {
   render() {
     return (
       <div className="availability-toggle">
-        <label className="filter-label">Available:</label>
+        <span className="filter-label">Available:</span>
         <ToggleButton
           inactiveLabel="Any"
           activeLabel="Yes"

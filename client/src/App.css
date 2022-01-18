@@ -35,9 +35,10 @@ tr:hover{
 	font-size:x-large;
 }
 
-.availability-title{
-	margin:auto;
-	width:50%;
+/*This is an attempt to center this element under the label*/
+.availability-toggle{
+	/*margin:auto;*/
+	/*width:50%;*/
 }
 
 .backdrop{
@@ -54,6 +55,14 @@ tr:hover{
 .btn{
 	color: #932432 !important;
 	background-color: #F3F3F3 !important;
+}
+
+.btn-suggest{
+	color: #FFFFFF !important;
+	background-color: #3b5fcb !important;
+	border: none;
+	border-radius: 5px;
+	margin-bottom:15px;
 }
 
 .cards-list{
@@ -119,6 +128,11 @@ tr:hover{
 
 .inline{
 	display:inline;
+}
+
+.suggestion-form{
+	display: inline-block;
+	box-sizing: border-box;
 }
 .text-left{
 	text-align: left;

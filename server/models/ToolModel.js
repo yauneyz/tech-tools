@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ToolSchema = new mongoose.Schema({
-	name: String,
+	name: {type: String, unique: true},
 	description: String,
 	url: String,
 	category: String,

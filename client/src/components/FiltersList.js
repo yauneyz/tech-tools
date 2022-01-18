@@ -1,6 +1,7 @@
 import React from "react";
 import {} from "../redux/actions";
 import filters from "../utils/filters";
+import SuggestRecordForm from "./forms/SuggestRecordForm";
 import { setOptions } from "../redux/actions";
 import { connect } from "react-redux";
 
@@ -20,9 +21,11 @@ class FiltersList extends React.Component {
         this.props.setOptions(options);
       });
   }
+
   render() {
     return (
       <div className="filters-list">
+				<SuggestRecordForm/>
         <div className="filters-title">
           <b>SEARCH THE CATALOG</b>
         </div>

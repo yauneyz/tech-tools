@@ -97,8 +97,6 @@ exports.saveTool = (async(req,res) => {
 		}
 	});
 	
-	debugger;
-	
 	const id = tool._id;
 	delete tool._id;
 	if (id) {

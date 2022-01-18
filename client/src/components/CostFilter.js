@@ -9,7 +9,10 @@ class CostFilter extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.state = { currentMin: 0, currentMax: 0, min: 0, max: 0 };
+    // We max out the current max and min so we can get the right defaults on the slider
+    // It seems that if we initially draw it with default [0,0] it's hard to get around that
+    // Feel free to fix this if you can manage it
+    this.state = { currentMin: 0, currentMax: 999, min: 0, max: 999 };
   }
 
   componentDidUpdate(prevProps) {
@@ -53,7 +56,7 @@ class CostFilter extends React.Component {
         <Range
           max={max}
           min={min}
-          value={[min, max]}
+          defaultValue={[min, max]}
           onChange={(event) => this.handleChange(event)}
           tipFormatter={(value) => <span className="tooltip">{value}</span>}
           tipProps={{ visible: true }}

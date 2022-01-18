@@ -52,6 +52,19 @@ class AdminDetail extends React.Component {
     console.log(event);
     event.preventDefault();
 
+    let duplicate = false;
+    // Try to find the tool, if it already exists then stop it
+    this.props.tools.forEach((tool) => {
+      if (tool.name === this.props.tool.name) {
+        duplicate = true;
+      }
+    });
+    // Quit if we've found a duplicate
+    if (duplicate) {
+      alert("There is already a tool with that name in the database.");
+      return;
+    }
+
     // Save the tool
     try {
       const data = new FormData(event.target);
@@ -65,6 +78,8 @@ class AdminDetail extends React.Component {
         mode: "cors",
         body: data,
       });
+      debugger;
+      alert("Tool Saved");
     } catch (error) {
       alert("Save Error");
     }
