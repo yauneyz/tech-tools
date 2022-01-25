@@ -134,6 +134,11 @@ tr:hover{
 	display: inline-block;
 	box-sizing: border-box;
 }
+
+.suggest-table{
+	width: 100%;
+}
+
 .text-left{
 	text-align: left;
 }

@@ -3,9 +3,10 @@ import React from "react";
 class SuggestRecordForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", url: "", showSuggestionForm: "d-none" };
+    this.state = { name: "", url: "", showSuggestionForm: "d-none", email: "" };
 
     this.handleURLChange = this.handleURLChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.toggleShowSuggestion = this.toggleShowSuggestion.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,6 +20,10 @@ class SuggestRecordForm extends React.Component {
     this.setState({ url: event.target.value });
   }
 
+  handleEmailChange(event) {
+    this.setState({ email: event.target.email });
+  }
+
   toggleShowSuggestion(_event) {
     let newClass = "d-none";
     if (this.state.showSuggestionForm === "d-none") {
@@ -27,13 +32,26 @@ class SuggestRecordForm extends React.Component {
     this.setState({ showSuggestionForm: newClass });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
-    // Send an email to someone saying we have a new record
+    // Add a record to the table to inform us that a suggestion has been recieved.
 
-    const target = process.env.SUGGEST_EMAIL;
+    try {
+      const name = event.target.name.value;
+      const url = event.target.url.value;
+      const email = event.target.email.value;
 
-    alert("Suggestion Submitted");
+      // Save the record
+      const _res = await fetch("suggest/save", {
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify({ name: name, url: url, referrer_email: email }),
+        headers: { "Content-Type": "application/json" },
+      });
+      alert("Suggestion Submitted");
+    } catch (error) {
+      alert("Submission Error. Try again later.");
+    }
   }
 
   render() {
@@ -43,7 +61,7 @@ class SuggestRecordForm extends React.Component {
           className="suggest-record btn-suggest btn"
           onClick={this.toggleShowSuggestion}
         >
-          Suggest a Record
+          Suggest a Tool
         </button>
         <div className={this.state.showSuggestionForm}>
           <form className="suggestion-form" onSubmit={this.handleSubmit}>
@@ -51,6 +69,7 @@ class SuggestRecordForm extends React.Component {
               Name of Tool:
               <input
                 type="text"
+                name="name"
                 value={this.state.name}
                 onChange={this.handleNameChange}
                 className="form-control"
@@ -60,8 +79,19 @@ class SuggestRecordForm extends React.Component {
               Website URL:
               <input
                 type="text"
+                name="url"
                 value={this.state.url}
                 onChange={this.handleURLChange}
+                className="form-control"
+              />
+            </label>
+            <label>
+              Your Email:
+              <input
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleEmailChange}
                 className="form-control"
               />
             </label>

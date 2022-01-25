@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors'); const cookieParser = require('cookie-parser');
 const session = require('cookie-session');
 const toolsRouter = require('./server/routes/tools');
+const SuggestRouter = require('./server/routes/suggest');
 const path = require("path")
 require('dotenv').config();
 const app = express();
@@ -44,6 +45,7 @@ app.use((_req, _res, next) => {
 });
 
 app.use('/tools', toolsRouter);
+app.use('/suggest', SuggestRouter);
 
 app.use(express.static(path.join(__dirname,"client","build")))
 

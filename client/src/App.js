@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Main from "./components/Main";
 import Admin from "./components/Admin";
+import Suggest from "./components/Suggest";
 
 class App extends React.Component {
   componentDidMount() {}
@@ -26,6 +27,9 @@ class App extends React.Component {
         <Switch>
           <Route path="/admin">
             <Admin />
+          </Route>
+          <Route path="/suggest">
+            <Suggest />
           </Route>
           <Route path="/">
             <Main />

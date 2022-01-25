@@ -78,7 +78,6 @@ class AdminDetail extends React.Component {
         mode: "cors",
         body: data,
       });
-      debugger;
       alert("Tool Saved");
     } catch (error) {
       alert("Save Error");

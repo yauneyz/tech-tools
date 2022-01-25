@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { setTools } from "../redux/actions";
@@ -24,6 +25,7 @@ class Admin extends React.Component {
           </div>
           <div className="row">
             <div className="col-2">
+              <Link to="/suggest">View Suggestions</Link>
               <FiltersList />
             </div>
             <div className="col-8">
