@@ -25,23 +25,15 @@ class App extends React.Component {
           />
         </header>
         <Switch>
-          <Route path="/admin">
-            <Admin />
-          </Route>
-          <Route path="/suggest">
-            <Suggest />
-          </Route>
-          <Route path="/">
-            <Main />
-          </Route>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/suggest" element={<Suggest />} />
+          <Route path="/" element={<Main />} />
         </Switch>
       </div>
     );
   }
 }
 
-const mapStateToProps = (_state) => {
-  return {};
-};
+const mapStateToProps = (_state) => ({});
 
 export default connect(mapStateToProps, {})(App);

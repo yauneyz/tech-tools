@@ -2,12 +2,35 @@ import React from "react";
 import { connect } from "react-redux";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { setAdminDetail } from "../redux/actions";
+//import { useNavigate } from "react-router-dom";
+
+// Add button functional class so we can use the navigate hook
+function AddButton(props) {
+  //let navigate = useNavigate();
+  //return (
+  //<div>
+  //<td className="admin-data">
+  //<button
+  //className="btn"
+  //onClick={async (_event) => {
+  //await props.setAdminDetail(props.suggestion);
+  //navigate("admin");
+  //}}
+  //>
+  //Delete
+  //</button>
+  //</td>
+  //</div>
+  //);
+}
 
 class SuggestTableRow extends React.Component {
   constructor(_props) {
     super();
     this.deleteSuggestion = this.deleteSuggestion.bind(this);
     this.confirmDelete = this.confirmDelete.bind(this);
+    this.addTool = this.addTool.bind(this);
 
     // These are the headers for the fields
     this.fields = ["name", "url", "referrer_email"];
@@ -49,10 +72,11 @@ class SuggestTableRow extends React.Component {
       <tr className="admin-row">
         {dataList}
         <td className="admin-data">
-          <button className="btn" onClick={this.confirmDelete}>
-            Delete
+          <button className="btn" onClick={this.addTool}>
+            Add
           </button>
         </td>
+        <AddButton />
       </tr>
     );
   }
@@ -62,4 +86,4 @@ const mapStateToProps = (_state) => {
   return {};
 };
 
-export default connect(mapStateToProps, {})(SuggestTableRow);
+export default connect(mapStateToProps, { setAdminDetail })(SuggestTableRow);

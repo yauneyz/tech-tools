@@ -20,6 +20,7 @@
   "dependencies": {
     "@types/node": "^15.12.5",
     "bcryptjs": "^2.4.3",
+    "chokidar": "^3.5.3",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
