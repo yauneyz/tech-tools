@@ -3,27 +3,27 @@ import { connect } from "react-redux";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { setAdminDetail } from "../redux/actions";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-// Add button functional class so we can use the navigate hook
-function AddButton(props) {
-  //let navigate = useNavigate();
-  //return (
-  //<div>
-  //<td className="admin-data">
-  //<button
-  //className="btn"
-  //onClick={async (_event) => {
-  //await props.setAdminDetail(props.suggestion);
-  //navigate("admin");
-  //}}
-  //>
-  //Delete
-  //</button>
-  //</td>
-  //</div>
-  //);
-}
+ //Add button functional class so we can use the navigate hook
+//function AddButton(props) {
+	//let navigate = useNavigate();
+	//return (
+	//<div>
+	//<td className="admin-data">
+	//<button
+	//className="btn"
+	//onClick={async (_event) => {
+	//await props.setAdminDetail(props.suggestion);
+	//navigate("admin");
+	//}}
+	//>
+	//Delete
+	//</button>
+	//</td>
+	//</div>
+	//);
+//}
 
 class SuggestTableRow extends React.Component {
   constructor(_props) {
