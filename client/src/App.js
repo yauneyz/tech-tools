@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Main from "./components/Main";
 import Admin from "./components/Admin";
@@ -24,11 +24,11 @@ class App extends React.Component {
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
           />
         </header>
-        <Switch>
+        <Routes>
           <Route path="/admin" element={<Admin />} />
           <Route path="/suggest" element={<Suggest />} />
           <Route path="/" element={<Main />} />
-        </Switch>
+        </Routes>
       </div>
     );
   }
