@@ -4,6 +4,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { setAdminDetail } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import newTool from "../utils/newTool";
 
 //Add button functional class so we can use the navigate hook
 function AddButton(props) {
@@ -14,11 +15,16 @@ function AddButton(props) {
         <button
           className="btn"
           onClick={async (_event) => {
-            await props.setAdminDetail(props.suggestion);
-            navigate("admin");
+            // Create the tool outline to pre-fill
+
+            const suggestedTool = newTool;
+            suggestedTool.name = props.suggestion.name;
+            suggestedTool.url = props.suggestion.url;
+            await props.setAdminDetail(suggestedTool);
+            navigate("/admin");
           }}
         >
-          Delete
+          Add
         </button>
       </td>
     </div>
@@ -30,7 +36,6 @@ class SuggestTableRow extends React.Component {
     super();
     this.deleteSuggestion = this.deleteSuggestion.bind(this);
     this.confirmDelete = this.confirmDelete.bind(this);
-    this.addTool = this.addTool.bind(this);
 
     // These are the headers for the fields
     this.fields = ["name", "url", "referrer_email"];
@@ -71,12 +76,17 @@ class SuggestTableRow extends React.Component {
     return (
       <tr className="admin-row">
         {dataList}
+        <td>
+          <AddButton
+            setAdminDetail={this.props.setAdminDetail}
+            suggestion={this.props.suggestion}
+          />
+        </td>
         <td className="admin-data">
-          <button className="btn" onClick={this.addTool}>
-            Add
+          <button className="btn" onClick={this.deleteSuggestion}>
+            Delete
           </button>
         </td>
-        <AddButton />
       </tr>
     );
   }

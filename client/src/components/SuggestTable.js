@@ -54,6 +54,8 @@ class SuggestionTable extends React.Component {
   }
 }
 
-const mapStateToProps = (_state) => {};
+const mapStateToProps = (_state) => {
+  return {};
+};
 
 export default connect(mapStateToProps, {})(SuggestionTable);

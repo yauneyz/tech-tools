@@ -1,29 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import mongoose from "mongoose";
 import { setAdminDetail, setTools } from "../redux/actions";
+import newTool from "../utils/newTool";
 
 class AdminDetail extends React.Component {
   constructor(props) {
     super();
-    const newTool = {
-      _id: mongoose.Types.ObjectId(),
-      name: "",
-      description: "",
-      url: "",
-      category: "",
-      sub_category: "",
-      compatible_os: "",
-      demographic: "",
-      language: "",
-      company: "",
-      cost_low: "",
-      cost_high: "",
-      cost_classroom: "",
-      msrp: "",
-      title_image: "",
-      action_image: "",
-    };
     this.newTool = newTool;
     this.setNewTool = this.setNewTool.bind(this);
     this.handleChange = this.handleChange.bind(this);
