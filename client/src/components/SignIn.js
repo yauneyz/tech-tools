@@ -1,24 +1,34 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
-const SignIn = (props) => {
+const SignIn = (_props) => {
   const [password, setPassword] = useState({ passwprd: "" });
+  const passwordKey = process.env.REACT_APP_ADMIN_PASSWORD;
 
   const navigate = useNavigate();
 
+  function useQuery() {
+    const { search } = useLocation();
+
+    return React.useMemo(() => new URLSearchParams(search), [search]);
+  }
+
+  let query = useQuery();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    debugger;
     //if (this.state.password === process.env.REACT_APP_ADMIN_PASSWORD) {
-    if (password.password === "test") {
+    if (password.password === passwordKey) {
       // Success
       localStorage.setItem("isAuthenticated", "true");
 
       // If we know where to go next, go there
-      if (props.nextRoute) {
-        navigate(props.nextRoute);
+      const next = query.get("next");
+      debugger;
+      if (next) {
+        navigate("/" + next);
       } else {
         navigate("/");
       }

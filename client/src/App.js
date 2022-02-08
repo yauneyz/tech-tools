@@ -7,7 +7,6 @@ import { useRoutes } from "react-router-dom";
 
 function App() {
   const isAuthenticated = localStorage.getItem("isAuthenticated", "true");
-  debugger;
 
   const routing = useRoutes(routes(isAuthenticated));
   return (
