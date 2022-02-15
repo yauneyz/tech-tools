@@ -89,16 +89,33 @@ class AdminDetail extends React.Component {
       fields.splice(vIndex, 1);
     }
 
+    // The description needs a longer box.
+    const getInput = (field) => {
+      if (field === "description") {
+        return (
+          <textarea
+            type="text"
+            className="form-control"
+            name={field}
+            value={this.props.tool[field]}
+            onChange={(event) => this.handleChange(field, event)}
+          />
+        );
+      } else {
+        return (
+          <input
+            type="text"
+            className="form-control"
+            name={field}
+            value={this.props.tool[field]}
+            onChange={(event) => this.handleChange(field, event)}
+          />
+        );
+      }
+    };
     const formInputs = fields.map((field, index) => (
       <label key={index} className="col-form-label">
-        {field}:
-        <input
-          type="text"
-          className="form-control"
-          name={field}
-          value={this.props.tool[field]}
-          onChange={(event) => this.handleChange(field, event)}
-        />
+        {field}:{getInput(field)}
       </label>
     ));
 

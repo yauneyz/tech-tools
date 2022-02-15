@@ -42,24 +42,28 @@ const SignIn = (_props) => {
   };
 
   return (
-    <div>
-      <h1>Sign In</h1>
-      <form>
-        <label>Password:</label>
-        <input
-          className="form-control"
-          type="password"
-          name="password"
-          onChange={(e) => handleInputChange(e)}
-        />
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={handleSubmit}
-        >
-          Sign In
-        </button>
-      </form>
+    <div className="container">
+      <div className="row">
+        <div className="col-md">
+          <h1>Sign In</h1>
+          <form>
+            <label>Password:</label>
+            <input
+              className="form-control"
+              type="password"
+              name="password"
+              onChange={(e) => handleInputChange(e)}
+            />
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={handleSubmit}
+            >
+              Sign In
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
