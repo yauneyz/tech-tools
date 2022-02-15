@@ -24,8 +24,8 @@ class FiltersList extends React.Component {
 
   render() {
     return (
-      <div className="filters-list">
-				<SuggestRecordForm/>
+      <div className="filters-list" id="navbarSupportedContent">
+        <SuggestRecordForm />
         <div className="filters-title">
           <b>SEARCH THE CATALOG</b>
         </div>
