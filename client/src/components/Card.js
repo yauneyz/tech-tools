@@ -13,7 +13,6 @@ class CardDisplay extends React.Component {
         <img className="card-img-top" src="..." alt=""></img>
         <div className="card-body">
           <h5 className="card-title text-center">{tool.name.toUpperCase()}</h5>
-          <h5 className="card-title text-center">{getTitleImage(tool)}</h5>
           <div className="row">
             <div className="col-12">
               <img
