@@ -1,5 +1,5 @@
 {
-  "name": "q",
+  "name": "tech-tools",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,6 +36,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+	"engines": {
+	"node": "16.13.2",
+	"npm": "8.4.0"
+	},
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
