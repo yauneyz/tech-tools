@@ -3,6 +3,7 @@ import Main from "./components/Main";
 import Admin from "./components/Admin";
 import Suggest from "./components/Suggest";
 import SignIn from "./components/SignIn";
+import About from "./components/About";
 
 const routes = (isAuthenticated) => [
   {
@@ -20,6 +21,10 @@ const routes = (isAuthenticated) => [
   {
     path: "/signin",
     element: <SignIn />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
   {
     path: "/",

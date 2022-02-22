@@ -13,6 +13,7 @@ class CardDisplay extends React.Component {
         <img className="card-img-top" src="..." alt=""></img>
         <div className="card-body">
           <h5 className="card-title text-center">{tool.name.toUpperCase()}</h5>
+          <h5 className="card-title text-center">{getTitleImage(tool)}</h5>
           <div className="row">
             <div className="col-12">
               <img
@@ -59,11 +60,11 @@ function PopupBackdrop(props) {
 }
 
 function getTitleImage(tool) {
-  return tool.name.replace(" ", "_") + "-title.jpg";
+  return tool.name.toLowerCase().replace(" ", "_") + "-title.jpg";
 }
 
 function getActionImage(tool) {
-  return tool.name.replace(" ", "_") + "-action.jpg";
+  return tool.name.toLowerCase().replace(" ", "_") + "-action.jpg";
 }
 
 // This is how cards appear as popup, but you MUST edit inside the popup tag
