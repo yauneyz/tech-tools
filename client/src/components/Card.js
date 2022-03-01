@@ -10,29 +10,23 @@ class CardDisplay extends React.Component {
     const tool = this.props.tool;
     return (
       <div onClick={() => this.props.setOpen(true)}>
-        <div className="card-body">
-          <h5 className="card-title text-center">{tool.name.toUpperCase()}</h5>
-          <div className="row">
-            <div className="col-12">
-              <img
-                className="thumbnail-image img"
-                src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
-                onError={(event) => (event.target.style.display = "none")}
-                alt={""}
-              />
+        <div>
+          <div className="tool-title">{tool.name.toUpperCase()}</div>
+          <img
+            className="thumbnail-image img"
+            src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
+            onError={(event) => (event.target.style.display = "none")}
+            alt={""}
+          />
+          <div className="tool-text">
+            <div className="category-text">
+              <div className="tool-header">Category</div>
+              <div>{tool.category}</div>
             </div>
-          </div>
-          <div className="row card-text">
-            <div className="col-6">
-              <b>Category</b>
+            <div className="grades-text">
+              <span className="tool-header">Grades</span>
+              <div>{tool.demographic}</div>
             </div>
-            <div className="col-6">{tool.category}</div>
-          </div>
-          <div className="row card-text">
-            <div className="col-6">
-              <b>Grades</b>
-            </div>
-            <div className="col-6">{tool.demographic}</div>
           </div>
         </div>
       </div>
@@ -70,7 +64,7 @@ class CardDetail extends React.Component {
   render() {
     const tool = this.props.tool;
     return (
-      <div className="card-detail">
+      <div className="tool-detail">
         <PopupBackdrop open={this.props.open} />
         <Popup
           open={this.props.open}
@@ -80,48 +74,42 @@ class CardDetail extends React.Component {
           }}
         >
           <button
-            className="btn horizontal-right fa fa-close popup-close"
+            className="btn fa fa-close popup-close"
             onClick={() => this.props.setOpen(false)}
           ></button>
-          <div className="row">
-            <div className="col-6">
-              <img
-                className="title-image img"
-                src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
-                onError={(event) => (event.target.style.display = "none")}
-                alt={""}
-              />
-            </div>
-            <div className="col-6">
-              <img
-                className="action-image img"
-                src={process.env.PUBLIC_URL + "images/" + getActionImage(tool)}
-                alt={""}
-                onError={(event) => (event.target.style.display = "none")}
-              />
-              <div>{""}</div>
-            </div>
+          <div className="popup-images">
+            <img
+              className="title-image img"
+              src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
+              onError={(event) => (event.target.style.display = "none")}
+              alt={""}
+            />
+            <img
+              className="action-image img"
+              src={process.env.PUBLIC_URL + "images/" + getActionImage(tool)}
+              alt={""}
+              onError={(event) => (event.target.style.display = "none")}
+            />
           </div>
-          <div className="row">
-            <div className="col-12">
-              <b>{tool.name}</b>
-              <p></p>
-              <p>{tool.description}</p>
+          <div>
+            <b>{tool.name}</b>
+            <p></p>
+            <p>{tool.description}</p>
+          </div>
 
-              <PopupField label="Category" data={tool.category} />
-              <PopupField label="Sub-Category" data={tool.sub_category} />
-              <PopupField label="Compatible OS" data={tool.compatible_os} />
-              <PopupField label="Language" data={tool.language} />
-              <PopupField label="Category" data={tool.company} />
-              <PopupField label="Cost (Low)" data={tool.cost_low} />
-              <PopupField label="Cost (High)" data={tool.cost_high} />
-            </div>
-          </div>
-          <div className="row">
-            <a className="btn horizontal-center" href={tool.url}>
-              VISIT WEBSITE
+          <PopupField label="Category" data={tool.category} />
+          <PopupField label="Sub-Category" data={tool.sub_category} />
+          <PopupField label="Compatible OS" data={tool.compatible_os} />
+          <PopupField label="Language" data={tool.language} />
+          <PopupField label="Category" data={tool.company} />
+          <PopupField label="Cost (Low)" data={tool.cost_low} />
+          <PopupField label="Cost (High)" data={tool.cost_high} />
+          <div className="btn-visit-site">
+            <a href={tool.url}>
+              <button className="btn">VISIT WEBSITE</button>
             </a>
           </div>
+          <div className="clear"></div>
         </Popup>
       </div>
     );
@@ -132,11 +120,9 @@ const Card = (props) => {
   const [open, setOpen] = React.useState(false);
   const tool = props.tool;
   return (
-    <div className="col py-2">
-      <div className="card h-100">
-        <CardDisplay tool={tool} setOpen={setOpen} />
-        <CardDetail setOpen={setOpen} open={open} tool={tool} />
-      </div>
+    <div className="tool">
+      <CardDisplay tool={tool} setOpen={setOpen} />
+      <CardDetail setOpen={setOpen} open={open} tool={tool} />
     </div>
   );
 };

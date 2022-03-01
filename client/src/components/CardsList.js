@@ -17,26 +17,13 @@ class CardsList extends React.Component {
     ));
 
     return (
-      <div>
-        <div className="row app-title">
-          <div className="col-12 app-title-main inline">
-            <span>CODING IS ELEMENTARY</span>
-            <span className="catalog-text">catalog</span>
-          </div>
+      <div className="cards-list">
+        <div className="app-title">
+          <span className="app-title-main">CODING IS ELEMENTARY</span>
+          <span className="catalog-text">catalog</span>
         </div>
-        <div className="row">
-          <div className="col-12">
-            <div
-              className="row row-cols-1 
-							row-cols-md-2 
-							row-cols-lg-3 
-							row-cols-xl-4
-							row-cols-xxl-5
-							card-deck"
-            >
-              {cardsList}
-            </div>
-          </div>
+        <div className="cards-grid-box">
+          <div className="cards-grid">{cardsList}</div>
         </div>
       </div>
     );

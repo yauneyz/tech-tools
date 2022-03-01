@@ -11,17 +11,9 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-4">
-            <div className="sticky">
-              <FiltersList />
-            </div>
-          </div>
-          <div className="col-8 cards-list">
-            <CardsList />
-          </div>
-        </div>
+      <div class="main-container">
+        <FiltersList />
+        <CardsList />
       </div>
     );
   }
