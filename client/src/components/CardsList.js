@@ -20,9 +20,8 @@ class CardsList extends React.Component {
       <div>
         <div className="row app-title">
           <div className="col-12 app-title-main inline">
-            CODING IS
-            <br /> ELEMENTARY
-            <div className="app-title-small inline">catalog</div>
+            <span>CODING IS ELEMENTARY</span>
+            <span className="catalog-text">catalog</span>
           </div>
         </div>
         <div className="row">

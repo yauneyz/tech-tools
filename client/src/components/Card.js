@@ -10,7 +10,6 @@ class CardDisplay extends React.Component {
     const tool = this.props.tool;
     return (
       <div onClick={() => this.props.setOpen(true)}>
-        <img className="card-img-top" src="..." alt=""></img>
         <div className="card-body">
           <h5 className="card-title text-center">{tool.name.toUpperCase()}</h5>
           <div className="row">

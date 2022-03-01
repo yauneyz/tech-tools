@@ -22,7 +22,7 @@ tr:hover{
 }
 
 .app-title{
-	color:#F3F3F3;
+	color: #F3F3F3;
 	width:100%;
 	margin:5px;
 	text-align:center;
@@ -67,6 +67,10 @@ tr:hover{
 
 .cards-list{
 	background-color: #3b5fcb;
+}
+
+.catalog-text{
+	font-size: 20px;
 }
 
 .horizontal-center {
