@@ -18,7 +18,7 @@ class AdminTable extends React.Component {
 
     return (
       <div>
-        <table className="admin-table table-responsive table">
+        <table className="admin-table">
           <thead>
             <tr>{header}</tr>
           </thead>

@@ -21,6 +21,20 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	border: none;
 }
 
+.admin-suggest-link{
+	display: inline;
+	float: left;
+	margin: 1em;
+}
+.admin-title-container{
+	text-align: center;
+}
+
+.admin-title{
+	font-size: 2em;
+	font-weight: bold;
+}
+
 .app-title{
 	color: #F3F3F3;
 	width:100%;

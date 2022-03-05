@@ -17,25 +17,15 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-12 text-center">
-              <h1>Admin</h1>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-2">
-              <Link to="/suggest">View Suggestions</Link>
-              <FiltersList />
-            </div>
-            <div className="col-8">
-              <AdminTable tools={this.props.tools} />
-            </div>
-            <div className="col-2">
-              <AdminDetail />
-            </div>
-          </div>
+        <div className="admin-title-container">
+          <Link className="admin-suggest-link" to="/suggest">
+            View Suggestions
+          </Link>
+          <span className="admin-title">Admin</span>
         </div>
+        <FiltersList />
+        <AdminTable tools={this.props.tools} />
+        <AdminDetail />
       </div>
     );
   }
