@@ -16,8 +16,6 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 }
 
 .action-image{
-	/*height: 200px;*/
-	width: 100%;
 	border: none;
 }
 
@@ -212,10 +210,14 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 }
 
 .action-image, .title-image{
-	width: 50%;
-	float: left;
-	display: block;
+	max-width: 50%;
+	display: inline;
 	max-height: 300px;
+	margin: auto;
+}
+
+.popup-images{
+	display: flex;
 }
 
 .popup-images:after{
