@@ -8,14 +8,11 @@ import { func } from "joi";
 class CardDisplay extends React.Component {
   render() {
     // Temporary to allow us to debug image misnaming
-    const isAuthenticated = localStorage.getItem("isAuthenticated", "true");
     const tool = this.props.tool;
-    const titleDebug = isAuthenticated ? getTitleImage(tool) : "";
     return (
       <div onClick={() => this.props.setOpen(true)}>
         <div>
           <div className="tool-title">{tool.name.toUpperCase()}</div>
-          {titleDebug}
           <img
             className="thumbnail-image img"
             src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
@@ -66,9 +63,7 @@ function getActionImage(tool) {
 // This is how cards appear as popup, but you MUST edit inside the popup tag
 class CardDetail extends React.Component {
   render() {
-    const isAuthenticated = localStorage.getItem("isAuthenticated", "true");
     const tool = this.props.tool;
-    const actionDebug = isAuthenticated ? getActionImage(tool) : "";
 
     return (
       <div className="tool-detail">
@@ -100,7 +95,6 @@ class CardDetail extends React.Component {
           </div>
           <div>
             <b>{tool.name}</b>
-            <p>{actionDebug}</p>
             <p></p>
             <p>{tool.description}</p>
           </div>
