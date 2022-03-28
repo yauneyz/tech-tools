@@ -15,10 +15,6 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
   color: #61dafb;
 }
 
-.action-image{
-	border: none;
-}
-
 .admin-suggest-link{
 	display: inline;
 	float: left;
@@ -158,6 +154,7 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	position: fixed;
 	display: inline-block;
 	width:16em;
+	overflow-y:scroll;
 	padding: 1em;
 	text-align:center;
 	background-color: #F3F3F3;
@@ -193,6 +190,7 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	float: right;
 	margin: 5px;
 	z-index: 1000;
+	display: block;
 }
 
 .suggest-table{
@@ -209,15 +207,23 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	text-align: right;
 }
 
-.action-image, .title-image{
+.title-image{
 	max-width: 50%;
 	display: inline;
 	max-height: 300px;
 	margin: auto;
 }
 
+.action-image{
+	max-width: 100%;
+	max-height: 300px;
+	margin: auto;
+	display: block;
+}
+
 .popup-images{
 	display: flex;
+	width: 100%;
 }
 
 .popup-images:after{

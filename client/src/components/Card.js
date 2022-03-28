@@ -7,7 +7,6 @@ import { func } from "joi";
 // This is how they appear in the list
 class CardDisplay extends React.Component {
   render() {
-    // Temporary to allow us to debug image misnaming
     const tool = this.props.tool;
     return (
       <div onClick={() => this.props.setOpen(true)}>
@@ -15,7 +14,7 @@ class CardDisplay extends React.Component {
           <div className="tool-title">{tool.name.toUpperCase()}</div>
           <img
             className="thumbnail-image img"
-            src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
+            src={process.env.PUBLIC_URL + "images/" + tool.title_image}
             onError={(event) => (event.target.style.display = "none")}
             alt={""}
           />
@@ -52,14 +51,6 @@ function PopupBackdrop(props) {
   }
 }
 
-function getTitleImage(tool) {
-  return tool.name.toLowerCase().split(" ").join("_") + "-title.jpg";
-}
-
-function getActionImage(tool) {
-  return tool.name.toLowerCase().split(" ").join("_") + "-action.jpg";
-}
-
 // This is how cards appear as popup, but you MUST edit inside the popup tag
 class CardDetail extends React.Component {
   render() {
@@ -81,14 +72,8 @@ class CardDetail extends React.Component {
           ></button>
           <div className="popup-images">
             <img
-              className="title-image img"
-              src={process.env.PUBLIC_URL + "images/" + getTitleImage(tool)}
-              onError={(event) => (event.target.style.display = "none")}
-              alt={""}
-            />
-            <img
               className="action-image img"
-              src={process.env.PUBLIC_URL + "images/" + getActionImage(tool)}
+              src={process.env.PUBLIC_URL + "images/" + tool.action_image}
               alt={""}
               onError={(event) => (event.target.style.display = "none")}
             />

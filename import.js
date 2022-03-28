@@ -51,6 +51,8 @@ Tool.deleteMany({}, () => {
 					cost_high: cost_high,
 					cost_classroom: row.classroom_kit_cost,
 					available: available,
+					title_image: row.title_image,
+					action_image: row.action_image,
 				})
 
 				tools.push(newTool)
