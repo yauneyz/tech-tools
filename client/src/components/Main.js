@@ -6,13 +6,13 @@ import MobileCardsList from "./MobileCardsList";
 import FiltersList from "./FiltersList";
 import CardsList from "./CardsList";
 
-const mobileSize = 1224;
+const mobileSize = 1000;
 
 const Main = () => {
   const isMobile = useMediaQuery({ maxWidth: mobileSize });
 
   return (
-    <div class="main-container">
+    <div className="main-container">
       {!isMobile && <FiltersList />}
       {!isMobile && <CardsList />}
 

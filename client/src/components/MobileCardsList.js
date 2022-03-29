@@ -20,14 +20,16 @@ class CardsList extends React.Component {
 
     return (
       <div className="cards-list mobile-cards-list">
-        <Menu width={"100%"}>
-          <MobileFiltersList />
-        </Menu>
-        <div className="app-title">
-          <span className="app-title-main">CODING IS ELEMENTARY</span>
-          <span className="catalog-text">catalog</span>
+        <div className="cards-header">
+          <Menu width={"100%"}>
+            <MobileFiltersList />
+          </Menu>
+          <div className="app-title">
+            <span className="app-title-main">CODING IS ELEMENTARY</span>
+            <span className="catalog-text">catalog</span>
+          </div>
         </div>
-        <div className="cards-grid-box">
+        <div className="cards-grid-box mobile-grid">
           <div className="cards-grid">{cardsList}</div>
         </div>
       </div>

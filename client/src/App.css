@@ -31,12 +31,31 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 
 .app-title{
 	color: #F3F3F3;
-	width:100%;
+	width:80%;
+	margin: auto;
+	height: 100%;
 	text-align: center;
 }
 .app-title-main{
 	font-size:xx-large;
 	font-weight:bold;
+}
+.catalog-text{
+	font-size: 20px;
+}
+
+/* Handle small screens*/
+@media only screen and (max-width: 600px) {
+	.app-title{
+		margin-top: 10px;
+	}
+	.app-title-main{
+		font-size:large;
+		font-weight:bold;
+	}
+	.catalog-text{
+		font-size: 10px;
+	}
 }
 
 .backdrop{
@@ -47,7 +66,6 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	right: 0;
 	left: 0;
 	background: rgba(0,0,0,0.7);
-	z-index: 990;
 }
 
 .btn{
@@ -101,6 +119,14 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	overflow: hidden;
 }
 
+.cards-header{
+	height: 3em;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+}
+
 
 .tool-header{
 	font-weight: bold;
@@ -121,6 +147,14 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	padding-left: 0px;
 }
 
+.mobile-grid{
+	margin-top: 3em;
+	overflow-y: scroll;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+}
+
 /* How cards look in the popup */
 .tool-detail{
 	padding: 1em;
@@ -133,9 +167,6 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	font-weight: bold;
 }
 
-.catalog-text{
-	font-size: 20px;
-}
 
 .tool-text{
 	display: flex;
@@ -151,7 +182,6 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 .filter-label{
 	color:black;
 	font-weight: bold;
-	z-index: 1;
 }
 
 .filters-list{
@@ -262,7 +292,7 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: white;
 }
 
 /* Color/shape of burger icon bars on hover*/
