@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Popup from "reactjs-popup";
-import PopupBackground from "./PopupBackground";
-import { func } from "joi";
+import FitText from "@kennethormandy/react-fittext";
 
 // This is how they appear in the list
 class CardDisplay extends React.Component {
@@ -11,7 +10,16 @@ class CardDisplay extends React.Component {
     return (
       <div onClick={() => this.props.setOpen(true)}>
         <div>
-          <div className="tool-title">{tool.name.toUpperCase()}</div>
+          <div className="tool-title">
+            <FitText
+              compressor={0.8}
+              vertical
+              maxFontSize={20}
+              minFontSize={15}
+            >
+              {tool.name.toUpperCase()}
+            </FitText>
+          </div>
           <img
             className="thumbnail-image img"
             src={process.env.PUBLIC_URL + "images/" + tool.title_image}
