@@ -1,26 +1,24 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useMediaQuery } from "react-responsive";
 
+import MobileFiltersList from "./MobileFiltersList";
+import MobileCardsList from "./MobileCardsList";
 import FiltersList from "./FiltersList";
 import CardsList from "./CardsList";
 
-//import {} from "./redux/actions";
+const mobileSize = 1224;
 
-class Main extends React.Component {
-  componentDidMount() {}
+const Main = () => {
+  const isMobile = useMediaQuery({ maxWidth: mobileSize });
 
-  render() {
-    return (
-      <div class="main-container">
-        <FiltersList />
-        <CardsList />
-      </div>
-    );
-  }
-}
+  return (
+    <div class="main-container">
+      {!isMobile && <FiltersList />}
+      {!isMobile && <CardsList />}
 
-const mapStateToProps = (_state) => {
-  return {};
+      {isMobile && <MobileCardsList />}
+    </div>
+  );
 };
 
-export default connect(mapStateToProps, {})(Main);
+export default Main;
