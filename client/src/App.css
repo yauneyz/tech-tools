@@ -11,17 +11,31 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	height: 100%;
 }
 
+.about-link{
+	margin-left: auto;
+	color: white
+}
+
+.about-link:hover{
+	color: red;
+}
+
+.about-page{
+	width:100%;
+	height:100%;
+}
+
 .App-link {
   color: #61dafb;
 }
 
 .admin-suggest-link{
-	display: inline;
-	float: left;
-	margin: 1em;
+	flex: 1;
 }
 .admin-title-container{
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .admin-title{
@@ -29,19 +43,56 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	font-weight: bold;
 }
 
+.right{
+	flex: 1;
+}
+
+.admin-body{
+	display: flex;
+}
+
+.admin-controls{
+	margin-left:16em;
+	display: flex;
+	position: fixed;
+}
+
+.admin-table-container{
+	flex: 2;
+}
+
+.admin-detail-container{
+	flex: 1;
+}
+
+.admin-detail{
+
+}
+
 .app-title{
 	color: #F3F3F3;
 	width:80%;
 	margin: auto;
-	height: 100%;
+	height: 3em;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content:center;
 }
 .app-title-main{
-	font-size:xx-large;
+	font-size:x-large;
 	font-weight:bold;
 }
 .catalog-text{
 	font-size: 20px;
+}
+
+.grow {
+	transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+	transform: scale(1.1);
 }
 
 /* Handle small screens*/
@@ -276,6 +327,11 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	max-width: 80%;
 	margin: auto;
 	display: block;
+}
+
+.title-favicon{
+	display: inline;
+	height: 100%;
 }
 
 /*------------*/

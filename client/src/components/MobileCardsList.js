@@ -25,8 +25,16 @@ class CardsList extends React.Component {
             <MobileFiltersList />
           </Menu>
           <div className="app-title">
+            <img
+              className="title-favicon"
+              src={process.env.PUBLIC_URL + "title-favicon.png"}
+              alt="Site Logo"
+            />
             <span className="app-title-main">CODING IS ELEMENTARY</span>
             <span className="catalog-text">catalog</span>
+            <a className="about-link" href="/about">
+              About
+            </a>
           </div>
         </div>
         <div className="cards-grid-box mobile-grid">

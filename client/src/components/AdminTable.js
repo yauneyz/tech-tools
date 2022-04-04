@@ -17,7 +17,7 @@ class AdminTable extends React.Component {
     ));
 
     return (
-      <div>
+      <div className="admin-table-container">
         <table className="admin-table">
           <thead>
             <tr>{header}</tr>

@@ -120,7 +120,7 @@ class AdminDetail extends React.Component {
     ));
 
     return (
-      <div>
+      <div className="admin-detail-container">
         <button className="btn" onClick={this.setNewTool}>
           New Tool
         </button>

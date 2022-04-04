@@ -18,14 +18,19 @@ class Admin extends React.Component {
     return (
       <div>
         <div className="admin-title-container">
-          <Link className="admin-suggest-link" to="/suggest">
-            View Suggestions
-          </Link>
-          <span className="admin-title">Admin</span>
+          <div className="admin-suggest-link">
+            <Link to="/suggest">View Suggestions</Link>
+          </div>
+          <div className="admin-title">Admin</div>
+          <div className="right"></div>
         </div>
-        <FiltersList />
-        <AdminTable tools={this.props.tools} />
-        <AdminDetail />
+        <div className="admin-body">
+          <FiltersList />
+          <div className="admin-controls">
+            <AdminTable tools={this.props.tools} />
+            <AdminDetail />
+          </div>
+        </div>
       </div>
     );
   }

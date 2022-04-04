@@ -1,14 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
+const About = () => (
+  <div className="about-page">
+    <iframe
+      className="about-page"
+      src={process.env.PUBLIC_URL + "About.html"}
+      title="About Source"
+      frameBorder="0"
+    />
+  </div>
+);
 
-class About extends React.Component {
-  render() {
-    return <div>This is the about page</div>;
-  }
-}
-
-const mapStateToProps = (_state, _ownProps) => {
-  return {};
-};
-
-export default connect(mapStateToProps, {})(About);
+export default About;

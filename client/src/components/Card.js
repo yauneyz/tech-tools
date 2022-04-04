@@ -115,7 +115,7 @@ const Card = (props) => {
   const [open, setOpen] = React.useState(false);
   const tool = props.tool;
   return (
-    <div className="tool">
+    <div className="tool grow">
       <CardDisplay tool={tool} setOpen={setOpen} />
       <CardDetail setOpen={setOpen} open={open} tool={tool} />
     </div>
