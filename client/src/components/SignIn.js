@@ -19,7 +19,6 @@ const SignIn = (_props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //if (this.state.password === process.env.REACT_APP_ADMIN_PASSWORD) {
     if (password.password === passwordKey) {
       // Success
       localStorage.setItem("isAuthenticated", "true");

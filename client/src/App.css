@@ -36,6 +36,11 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	height: 3em;
+	width: 100%;
+	margin: 0;
+	position: fixed;
+	top: 0;
 }
 
 .admin-title{
@@ -49,12 +54,16 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 
 .admin-body{
 	display: flex;
+	margin-top: 3em;
 }
 
 .admin-controls{
 	margin-left:16em;
 	display: flex;
+	height: 100%;
 	position: fixed;
+	top: 3em;
+	overflow-y: scroll;
 }
 
 .admin-table-container{
@@ -147,8 +156,7 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	background-clip: padding-box;
 	padding: 1em;
 	margin: 1em;
-	width: 16em;
-	height:16em;
+	width: 20em;
 	border-radius: 10px;
 }
 

@@ -7,6 +7,21 @@ import FitText from "@kennethormandy/react-fittext";
 class CardDisplay extends React.Component {
   render() {
     const tool = this.props.tool;
+
+    // The list of all demographics, split up
+    const numbered_demos = tool.demographic.split(";");
+
+    // Strip numbering and convert to paragraphs
+    const demos_list = numbered_demos.map((demo) => {
+      if (demo) {
+        const split_demo = demo.split(".");
+        const stripped_demo = split_demo[1];
+        return <div>{stripped_demo}</div>;
+      } else {
+        return <span></span>;
+      }
+    });
+
     return (
       <div onClick={() => this.props.setOpen(true)}>
         <div>
@@ -33,7 +48,7 @@ class CardDisplay extends React.Component {
             </div>
             <div className="grades-text">
               <span className="tool-header">Grades</span>
-              <div>{tool.demographic}</div>
+              <div>{demos_list}</div>
             </div>
           </div>
         </div>

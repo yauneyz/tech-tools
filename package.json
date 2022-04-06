@@ -47,8 +47,8 @@
     "eslint-plugin-react": "^7.22.0",
     "miragejs": "^0.1.41"
   },
-	"engines": {
-	"node": "16.13.2",
-	"npm": "8.4.0"
-	}
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.4.0"
+  }
 }
