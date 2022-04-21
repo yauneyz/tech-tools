@@ -19,13 +19,15 @@ class CardsList extends React.Component {
     return (
       <div className="cards-list">
         <div className="app-title">
-          <img
-            className="title-favicon"
-            src={process.env.PUBLIC_URL + "title-favicon.png"}
-            alt="Site Logo"
-          />
-          <span className="app-title-main">CODING IS ELEMENTARY</span>
-          <span className="catalog-text">catalog</span>
+          <div className="title-favicon-container">
+            <img
+              className="title-favicon"
+              src={process.env.PUBLIC_URL + "title-favicon.png"}
+              alt="Site Logo"
+            />
+          </div>
+          <div className="app-title-main">CODING IS ELEMENTARY</div>
+          <div className="catalog-text">catalog</div>
           <a className="about-link" href="/about">
             About
           </a>

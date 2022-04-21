@@ -86,10 +86,10 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	text-align: center;
 	display: flex;
 	align-items: center;
-	justify-content:center;
+	justify-content: center;
 }
 .app-title-main{
-	font-size:x-large;
+	font-size:xx-large;
 	font-weight:bold;
 }
 .catalog-text{
@@ -105,7 +105,7 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 }
 
 /* Handle small screens*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 	.app-title{
 		margin-top: 10px;
 	}
@@ -337,8 +337,10 @@ html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
 	display: block;
 }
 
+.title-favicon-container{
+	height: 100%;
+}
 .title-favicon{
-	display: inline;
 	height: 100%;
 }
 
@@ -409,4 +411,77 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+/* About page */
+.about-page table {
+	text-align: left;
+	padding:  0px;
+	border-spacing: 0px;
+	width:  80%;
+	position:  relative;
+	margin: 0px auto;
+	border: 1px solid black;
+}
+.about-page table td:nth-child(1) {
+	padding:  0px 10px;
+}
+.about-page table td:nth-child(1n+1) {
+	padding-bottom: .5em;
+}
+.about-page th {
+	color:  #fff;
+	font-weight: bolder;
+	font-size: 2.5em;
+	background-color: #3b5fcb;
+	padding: .25em .5em;
+}
+.about-page caption {
+	font-style: italic;
+}
+
+.about-page td{
+	font-size: 1.8em;
+}
+.about-page h1 {
+	text-align: center;
+}
+/*classes*/
+.top {
+	border-top: 3px solid #000;
+}
+.bottom {
+	border-bottom: 1px solid #000;
+}
+
+.about-page{
+	width:90%;
+	margin: auto;
+	font-size: 1.8em;
+}
+
+.about-header{
+	background-color: #3b5fcb;
+	color: white;
+	display: flex;
+}
+
+.about-header::after {
+  flex: 1;
+  content: '';
+}
+
+.catalog-link{
+	flex: 1;
+}
+.catalog-link a{
+	color: white;
+}
+
+.catalog-link a:hover{
+	color: yellow;
+}
+
+.about-header-text{
+	flex: 1;
 }
