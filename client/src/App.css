@@ -473,6 +473,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .catalog-link{
 	flex: 1;
+	font-size: small;
 }
 .catalog-link a{
 	color: white;
@@ -486,6 +487,44 @@ Note: Beware of modifying this element as it can break the animations - you shou
 	flex: 1;
 }
 
+@media only screen and (max-width: 800px) {
+	.about-header-text h1{
+		font-size: large;
+		width: 80%;
+		margin: auto;
+	}
+
+	.about-page{
+		font-size: medium;
+	}
+
+	.about-page th{
+		font-size: medium;
+	}
+
+	.about-page td{
+		font-size: medium;
+	}
+
+	.about-header{
+		flex-wrap: wrap;
+	}
+
+	.catalog-link{
+		flex: 0 0 100%;
+		margin-right: auto;
+		display: block;
+		text-align: left;
+	}
+
+	.about-header-text{
+		flex: 0 0 100%;
+		margin: auto;
+		text-align: center;
+	}
+}
+
+/*Tool upload*/
 .tool-upload-header{
 	margin: auto;
 	display: flex;

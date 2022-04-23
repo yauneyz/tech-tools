@@ -34,7 +34,7 @@ const About = () => (
       led us to develop the following framework for talking about the different
       types of tools.
     </p>
-    <table>
+    <table className="table">
       <caption>Classification of Coding Tools for Kids</caption>
       <tr class="top">
         <th>Category</th>
