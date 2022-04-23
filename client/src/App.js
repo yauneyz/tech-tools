@@ -4,11 +4,17 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import routes from "./routes";
 import { useRoutes } from "react-router-dom";
+import ReactGA from "react-ga";
 
 function App() {
   const isAuthenticated = localStorage.getItem("isAuthenticated", "true");
-
   const routing = useRoutes(routes(isAuthenticated));
+  const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
+
+  if (process.env.NODE_ENV === "production") {
+    ReactGA.initialize(TRACKING_ID);
+  }
+
   return (
     <div className="App">
       <header>
