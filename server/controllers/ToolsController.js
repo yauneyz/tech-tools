@@ -1,4 +1,5 @@
 const Tool = require('../models/ToolModel');
+const importer = require('../../import')
 const {error} = require('console');
 
 exports.getTools = (async (_req, res) => {
@@ -18,20 +19,6 @@ const numberFields = [
 	"cost_low",
 	"cost_high",
 ]
-
-// Used to handle the number fields
-function dollarToFloat(x) {
-  // Strip away unecessary stuff
-  x = x.replace(/[^0-9.-]+/g, "");
-
-  // Try conversion
-  try {
-    return parseFloat(x);
-  } catch (error) {
-    // If not, return null
-    return null;
-  }
-}
 
 exports.getOptions = (async(_req,res) => {
 	var optionsList = {}
@@ -134,3 +121,9 @@ exports.deleteTool = (async(req,res) => {
 		res.send(errorMessage);
 	}
 });
+
+exports.updateTools = (async(req,res) => {
+	var csv = req.file["buffer"].toString()
+	const importResult = await importer.updateTools(csv);
+	res.send(importResult)
+})

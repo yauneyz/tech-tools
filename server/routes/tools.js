@@ -12,5 +12,6 @@ router.get('/', ToolsController.getTools);
 router.get('/options', ToolsController.getOptions);
 router.post('/save',upload.any(),ToolsController.saveTool);
 router.post('/delete', ToolsController.deleteTool);
+router.post('/upload', upload.single('tools'),ToolsController.updateTools);
 
 module.exports = router;
