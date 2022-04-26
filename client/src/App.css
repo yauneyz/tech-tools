@@ -1,10 +1,10 @@
 table,th,td{
-	border: 1px solid black;
+	border: 1px solid white;
 	font-size: small;
 }
 
 tr:hover{
-   background-color: #ffff99;
+   background-color: #003366;
 }
 
 html, body, #app, #app>div, .body, #root, .App, .main-container, .filters-list{
@@ -421,7 +421,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 	width:  80%;
 	position:  relative;
 	margin: 0px auto;
-	border: 1px solid black;
+	border: 1px solid white;
 }
 .about-page table td:nth-child(1) {
 	padding:  0px 10px;
@@ -430,7 +430,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 	padding-bottom: .5em;
 }
 .about-page th {
-	color:  #fff;
+	color:  white;
 	font-weight: bolder;
 	font-size: 2.5em;
 	background-color: #3b5fcb;
@@ -438,42 +438,46 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 .about-page caption {
 	font-style: italic;
+	color: white;
 }
 
 .about-page td{
 	font-size: 1.8em;
+	color: white;
+}
+
+.about-page tr{
+	border: 1px solid white;
 }
 .about-page h1 {
 	text-align: center;
 }
 /*classes*/
 .top {
-	border-top: 3px solid #000;
+	border-top: 3px solid white;
 }
 .bottom {
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid white;
 }
 
 .about-page{
-	width:90%;
 	margin: auto;
-	font-size: 1.8em;
+	width: 85%;
 }
 
 .about-header{
-	background-color: #3b5fcb;
-	color: white;
 	display: flex;
 }
 
 .about-header::after {
-  flex: 1;
-  content: '';
+  flex: 1; content: '';
 }
 
 .catalog-link{
 	flex: 1;
 	font-size: small;
+	margin-bottom: 1em;
+	font-style: italic;
 }
 .catalog-link a{
 	color: white;
@@ -522,6 +526,22 @@ Note: Beware of modifying this element as it can break the animations - you shou
 		margin: auto;
 		text-align: center;
 	}
+
+	.about-page table{
+		width: 100%;
+		overflow-x: auto;
+		display: block;
+	}
+}
+
+.background{
+	min-width:100%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	width: 100%;
+	background-color: rgb(59, 95, 203);
+	color: white;
 }
 
 /*Tool upload*/
