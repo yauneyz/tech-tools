@@ -12,7 +12,7 @@ const routes = (isAuthenticated) => [
     element: isAuthenticated ? <Admin /> : <Navigate to="/signin?next=admin" />,
   },
   {
-    path: "/admin/images",
+    path: "/admin/upload",
     element: isAuthenticated ? (
       <ToolsUpload />
     ) : (
