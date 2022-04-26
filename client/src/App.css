@@ -3,7 +3,10 @@ table,th,td{
 	font-size: small;
 }
 
-tr:hover{
+.admin-table tr:hover{
+   background-color: yellow;
+}
+.about-page tr:hover{
    background-color: #003366;
 }
 

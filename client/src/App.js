@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import routes from "./routes";
 import { useRoutes } from "react-router-dom";
