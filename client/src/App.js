@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./App.css";
 import routes from "./routes";
 import { useRoutes } from "react-router-dom";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 function App() {
   const isAuthenticated = localStorage.getItem("isAuthenticated", "true");
@@ -12,7 +12,8 @@ function App() {
 
   // If production, initialize Google Analytics
   if (process.env.NODE_ENV === "production") {
-    ReactGA.initialize(google_tracking_id);
+    // Initialize react-ga4 tracking
+    ReactGA.initialize([{ trackingId: google_tracking_id }]);
   }
 
   return (
