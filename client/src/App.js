@@ -8,11 +8,10 @@ import ReactGA from "react-ga";
 function App() {
   const isAuthenticated = localStorage.getItem("isAuthenticated", "true");
   const routing = useRoutes(routes(isAuthenticated));
-  const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
+  const google_tracking_id = process.env.REACT_APP_TRACKING_ID;
 
   // If production, initialize Google Analytics
   if (process.env.NODE_ENV === "production") {
-    const google_tracking_id = process.env.REACT_APP_TRACKING_ID;
     ReactGA.initialize(google_tracking_id);
   }
 
