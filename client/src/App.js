@@ -10,9 +10,10 @@ function App() {
   const routing = useRoutes(routes(isAuthenticated));
   const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
 
+  // If production, initialize Google Analytics
   if (process.env.NODE_ENV === "production") {
-    ReactGA.initialize(TRACKING_ID);
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    const google_tracking_id = process.env.REACT_APP_TRACKING_ID;
+    ReactGA.initialize(google_tracking_id);
   }
 
   return (
